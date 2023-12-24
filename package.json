@@ -1,0 +1,42 @@
+{
+  "name": "stimulus-rails-inline-input-validations",
+  "version": "1.0.0",
+  "description": "A Stimulus controller for rendering rails model validation errors inline on form inputs",
+  "source": "src/index.js",
+  "main": "./dist/stimulus-rails-inline-input-validations",
+  "module": "./dist/stimulus-rails-inline-input-validations.module.js",
+  "repository": {
+    "url": "https://github.com/mikerayux/stimulus-rails-inline-input-validations",
+    "type": "git"
+  },
+  "scripts": {
+    "build": "npm run build-esm && npm run build-cjs",
+    "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-rails-inline-input-validations.cjs",
+    "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-rails-inline-input-validations.module.js",
+    "prepublish": "npm run build",
+    "test": "web-test-runner",
+    "test:watch": "web-test-runner --watch"
+  },
+  "author": "Mike Ray Arriaga <m.arriaga.smb@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "amdName": "StimulusInlineValidations",
+  "keywords": [
+    "stimulus",
+    "stimulusjs",
+    "rails",
+    "inline",
+    "input",
+    "validations"
+  ],
+  "browserslist": [
+    "defaults"
+  ],
+  "devDependencies": {
+    "esbuild": "^0.18.11",
+    "live-server": "^1.2.2"
+  },
+  "peerDependencies": {
+    "@hotwired/stimulus": ">= 3.0.0"
+  }
+}

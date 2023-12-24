@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Stimulus Rails Inline Input Validations</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <script>
+    window.esmsInitOptions = {enable: ['css-modules', 'json-modules']}
+  </script>
+  <script async src="https://unpkg.com/es-module-shims/dist/es-module-shims.js"></script>
+
+  <script type="importmap">
+      {
+        "imports": {
+          "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js",
+          "stimulus-rails-inline-input-validations": "./dist/stimulus-rails-inline-input-validations.module.js"
+        }
+      }
+    </script>
+
+  <script type="module">
+    import { Application } from "@hotwired/stimulus";
+    import { InputValidator } from "stimulus-rails-inline-input-validations";
+
+      (() => {
+        const application = Application.start();
+        application.register('input-validator', InputValidator);
+      })()
+  </script>
+</head>
+
+<body>
+  <div class="container mx-auto p-8" data-controller="input-validator" data-action="something">
+      <div data-controller="input-validator" class="flex flex-col justify-center items-start">
+        <label for="fullName">Full name:</label>
+        <input 
+          type="text" 
+          data-input-validator-target="textField" 
+          data-field='fullName'
+          data-validate-presence="true"
+          data-input-validator-validations-param='[{"presence": true}, {"length": {"max": 50}}]'
+          >
+        <div
+          data-input-validator-target="errors"
+          data-field="fullName"
+          class="hidden text-sm text-red-500"></div>
+      </div>
+  </div>
+</body>
+
+</html>
