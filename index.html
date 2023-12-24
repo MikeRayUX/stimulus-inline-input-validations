@@ -53,14 +53,14 @@
           </div>
           <!-- presence end-->
 
-          <!-- length min start-->
+          <!-- length start-->
           <div class="flex flex-col justify-center items-start mb-2">
             <label for="fullName">length (min,max)</label>
             <input 
               type="text" 
               data-input-validator-target="textField" 
               data-field='userName'
-              data-validate-length="1,10"
+              data-validate-length="5,10"
               data-input-validator-rails-validations-param='[{"presence": true}, {"length": {"max": 50}}]'
             >
             <div
@@ -68,9 +68,9 @@
               data-field="userName"
               class="text-sm text-red-500"></div>
           </div>
-          <!-- length min end-->
+          <!-- length end-->
 
-          <!-- numericality min start-->
+          <!-- numericality start-->
           <div class="flex flex-col justify-center items-start mb-2">
             <label for="fullName">numericality</label>
             <input 
@@ -85,7 +85,7 @@
               data-field="currency"
               class="text-sm text-red-500"></div>
           </div>
-          <!-- numericality min end-->
+          <!-- numericality end-->
         </div>
       </div>
     </div>
