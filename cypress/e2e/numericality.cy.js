@@ -1,4 +1,4 @@
-describe("single_valiations/numericality", () => {
+describe("numericality", () => {
   beforeEach(() => {
     cy.visit("http://127.0.0.1:8080/");
   });
@@ -10,7 +10,7 @@ describe("single_valiations/numericality", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="currency"]'
     ).within(() => {
-      cy.get("div").should("exist").should("contain", "Must be a number");
+      cy.get(`div[error="numericality"]`).should("exist").should("contain", "Must be a number");
     });
   });
 
@@ -24,7 +24,7 @@ describe("single_valiations/numericality", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="currency"]'
     ).within(() => {
-      cy.get("div").should("exist").should("contain", "Must be a number");
+      cy.get(`div[error="numericality"]`).should("exist").should("contain", "Must be a number");
     });
   });
 
@@ -35,8 +35,7 @@ describe("single_valiations/numericality", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="currency"]'
     ).within(() => {
-      cy.get("div").should("not.exist");
+      cy.get(`div[error="numericality"]`).should("not.exist");
     });
   });
-
 });
