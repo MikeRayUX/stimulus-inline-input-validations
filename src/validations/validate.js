@@ -21,12 +21,22 @@ const Validate = {
   },
 
   numericality(value, errors) {
-    if(!value.length) return
+    if (!value.length) return;
 
     const numberRegex = /^[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/;
 
     if (!numberRegex.test(value)) {
       errors.push({ type: "numericality", message: "Must be a number" });
+    }
+  },
+
+  email(value, errors) {
+    if (!value.length) return;
+
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+    if (!emailRegex.test(value)) {
+      errors.push({ type: "email", message: "Invalid email format" });
     }
   },
 };

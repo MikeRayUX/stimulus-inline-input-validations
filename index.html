@@ -86,6 +86,23 @@
               class="text-sm text-red-500"></div>
           </div>
           <!-- numericality end-->
+
+          <!-- email start-->
+          <div class="flex flex-col justify-center items-start mb-2 w-full">
+            <label for="currency">Email</label>
+            <input 
+              type="text" 
+              data-input-validator-target="textField" 
+              data-field='emailField'
+              data-validate-email="true"
+              class="w-full"
+            >
+            <div
+              data-input-validator-target="errors"
+              data-field="emailField"
+              class="text-sm text-red-500"></div>
+          </div>
+          <!-- email end-->
         </div>
         <!-- section end-->
 

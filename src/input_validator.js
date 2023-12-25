@@ -45,9 +45,16 @@ export default class extends Controller {
     ) {
       Validate.numericality(value, errors);
     }
+
+    if (
+      target.hasAttribute("data-validate-email") &&
+      target.getAttribute("data-validate-email") != "false"
+    ) {
+      Validate.email(value, errors);
+    }
   }
 
-  validateInput({ params: { validations }, target, target: { value } }) {
+  validateInput({ target, target: { value } }) {
     let field = getField(target);
     let [errorsContainer] = this.errorsTargets.filter(
       (item) => item.getAttribute("data-field") == field
