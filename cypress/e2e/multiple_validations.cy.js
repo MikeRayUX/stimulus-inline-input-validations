@@ -4,19 +4,21 @@ describe("multiple_validations", () => {
   });
 
   it(`renders multiple errors on field with multiple validations specified`, () => {
-    let field = cy.get(`input[data-field='multiple']`);
-    cy.get(`input[data-field='multiple']`).type("abc").clear();
+    cy.get(`input[data-field='multiple']`).type("abc")
 
     cy.get(`div[data-input-validator-target="errors"][data-field="multiple"]`).within(() => {
-      cy.get(`div[error="presence"]`).should("exist");
       cy.get(`div[error="length-min"]`).should("exist")
+      cy.get(`div[error="email"]`).should("exist");
+      cy.get(`div[error="numericality"]`).should("exist");
     });
 
-    field.type("abcdefghijklmnop")
+    cy.get(`input[data-field='multiple']`).type("abcdefghijklmnop")
 
-    cy.get(`div[data-field='multiple']`).within(() => {
+    cy.get(`div[data-input-validator-target="errors"][data-field="multiple"]`).within(() => {
       cy.get(`div[error="length-max"]`).should("exist")
-      cy.get(`div[error="numericality"]`).should("exist")
+      cy.get(`div[error="email"]`).should("exist");
+      cy.get(`div[error="numericality"]`).should("exist");
     });
+
   });
 });
