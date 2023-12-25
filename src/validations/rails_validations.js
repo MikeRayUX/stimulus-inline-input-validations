@@ -1,4 +1,3 @@
-const RailsValidations = {
-};
+const RailsValidations = {};
 
 export default RailsValidations;

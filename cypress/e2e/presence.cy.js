@@ -1,4 +1,4 @@
-describe("single_valiations/presence", () => {
+describe("presence", () => {
   beforeEach(() => {
     cy.visit("http://127.0.0.1:8080/");
   });
@@ -11,7 +11,7 @@ describe("single_valiations/presence", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="fullName"]'
     ).within(() => {
-      cy.get("div").should("exist").should("contain", "Can't be blank");
+      cy.get(`div[error="presence"]`).should("exist").should("contain", "Can't be blank");
     });
   });
 
@@ -32,7 +32,7 @@ describe("single_valiations/presence", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="fullName"]'
     ).within(() => {
-      cy.get("div").should("exist").should("contain", "Can't be blank");
+      cy.get(`div[error="presence"]`).should("exist").should("contain", "Can't be blank");
     });
   });
 
@@ -48,7 +48,7 @@ describe("single_valiations/presence", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="fullName"]'
     ).within(() => {
-      cy.get("div").should("not.exist");
+      cy.get(`div[error="presence"]`).should("not.exist");
     });
   });
 
@@ -62,7 +62,7 @@ describe("single_valiations/presence", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="fullName"]'
     ).within(() => {
-      cy.get("div").should("not.exist");
+      cy.get(`div[error="presence"]`).should("not.exist");
     });
   });
 });

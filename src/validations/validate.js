@@ -1,10 +1,10 @@
-const StandardValidations = {
+const Validate = {
   presence(target, errors) {
     if (!target) return;
     if (target.getAttribute("data-validate-presence") == "false") return;
 
     if (target.value.trim().length === 0) {
-      errors.push("Can't be blank");
+      errors.push({ type: "presence", message: "Can't be blank" });
     }
   },
 
@@ -15,10 +15,16 @@ const StandardValidations = {
     let [min, max] = target.getAttribute("data-validate-length").split(",");
 
     if (target.value.length < min) {
-      errors.push(`Too short. Minimum ${min} characters`);
+      errors.push({
+        type: "length-min",
+        message: `Too short. Minimum ${min} characters`,
+      });
     }
     if (target.value.length > max) {
-      errors.push(`Too long. Maximum ${max} characters`);
+      errors.push({
+        type: "length-max",
+        message: `Too long. Maximum ${max} characters`,
+      });
     }
   },
 
@@ -26,9 +32,9 @@ const StandardValidations = {
     const numberRegex = /^[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/;
 
     if (!numberRegex.test(target.value)) {
-      errors.push("Must be a number");
+      errors.push({ type: "numericality", message: "Must be a number" });
     }
   },
 };
 
-export default StandardValidations;
+export default Validate;
