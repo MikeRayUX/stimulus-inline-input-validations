@@ -31,20 +31,20 @@
   </head>
 
   <body>
-    <div class="container mx-auto p-8" data-controller="input-validator" data-action="something">
+    <div class="container mx-auto p-8 w-full" data-controller="input-validator" data-action="something">
       <div data-controller="input-validator" class="flex flex-col justify-center items-center w-full">
-
-        <div class="w-1/2 flex flex-col justify-center items-center">
+        <!-- section start -->
+        <div class="w-full max-w-xs flex flex-col justify-center items-center">
           <h1 class="text-xl text-center font-bold">Single Validations</h1>
           <!-- presence start-->
-          <div class="flex flex-col justify-center items-start mb-2">
+          <div class="flex flex-col justify-center items-start mb-2 w-full">
             <label for="fullName">Presence</label>
             <input 
               type="text" 
               data-input-validator-target="textField" 
               data-field='fullName'
               data-validate-presence="true"
-              data-input-validator-validations-param='[{"presence": true}, {"length": {"max": 50}}]'
+              class="w-full"
             >
             <div
               data-input-validator-target="errors"
@@ -54,14 +54,14 @@
           <!-- presence end-->
 
           <!-- length start-->
-          <div class="flex flex-col justify-center items-start mb-2">
-            <label for="fullName">length (min,max)</label>
+          <div class="flex flex-col justify-center items-start mb-2 w-full">
+            <label for="fullName">Length (min,max)</label>
             <input 
               type="text" 
               data-input-validator-target="textField" 
               data-field='userName'
               data-validate-length="5,10"
-              data-input-validator-rails-validations-param='[{"presence": true}, {"length": {"max": 50}}]'
+              class="w-full"
             >
             <div
               data-input-validator-target="errors"
@@ -71,14 +71,14 @@
           <!-- length end-->
 
           <!-- numericality start-->
-          <div class="flex flex-col justify-center items-start mb-2">
-            <label for="fullName">numericality</label>
+          <div class="flex flex-col justify-center items-start mb-2 w-full">
+            <label for="fullName">Numericality</label>
             <input 
               type="text" 
               data-input-validator-target="textField" 
               data-field='currency'
               data-validate-numericality="true"
-              data-input-validator-rails-validations-param='[{"presence": true}, {"length": {"max": 50}}]'
+              class="w-full"
             >
             <div
               data-input-validator-target="errors"
@@ -87,8 +87,50 @@
           </div>
           <!-- numericality end-->
         </div>
+        <!-- section end-->
+
+        <!-- section start -->
+        <div class="w-full max-w-xs flex flex-col justify-center items-center">
+          <h1 class="text-xl text-center font-bold">Multiple validations</h1>
+          <div class="flex flex-col justify-center items-start mb-2 w-full">
+            <label for="fullName">Presence, Min/Max, Numericality</label>
+            <input 
+              type="text" 
+              data-input-validator-target="textField" 
+              data-field='multiple'
+              data-validate-presence="true"
+              data-validate-length="5,10"
+              data-validate-numericality="true"
+              class="w-full"
+            >
+            <div
+              data-input-validator-target="errors"
+              data-field="multiple"
+              class="text-sm text-red-500"></div>
+          </div>
+        </div>
+        <!-- section end-->
+
+        <!-- section start -->
+        <div class="w-full max-w-xs flex flex-col justify-center items-center">
+          <h1 class="text-xl text-center font-bold">Bulk Validations (json array)</h1>
+          <div class="flex flex-col justify-center items-start mb-2 w-full">
+            <label for="fullName">'[{"presence": true}, {"numericality": true} {"length": {"max": 50}}]'</label>
+            <input 
+              type="text" 
+              data-input-validator-target="textField" 
+              data-field='railsModel'
+              data-validations='[{"presence": true}, {"numericality": true} {"length": {"max": 50}}]'
+              class="w-full"
+            >
+            <div
+              data-input-validator-target="errors"
+              data-field="railsModel"
+              class="text-sm text-red-500"></div>
+          </div>
+        </div>
+        <!-- section end-->
       </div>
-    </div>
     </div>
   </body>
 
