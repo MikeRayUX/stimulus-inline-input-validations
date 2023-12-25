@@ -6,6 +6,7 @@ const Validate = {
   },
 
   length(value, errors, minMax) {
+    if (!value.length) return;
     if (value.length < minMax.min) {
       errors.push({
         type: "length-min",
