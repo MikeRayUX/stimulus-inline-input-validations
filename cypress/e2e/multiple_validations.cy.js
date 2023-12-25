@@ -5,9 +5,9 @@ describe("multiple_validations", () => {
 
   it(`renders multiple errors on field with multiple validations specified`, () => {
     let field = cy.get(`input[data-field='multiple']`);
-    field.type("abc").clear();
+    cy.get(`input[data-field='multiple']`).type("abc").clear();
 
-    cy.get(`div[data-field='multiple']`).within(() => {
+    cy.get(`div[data-input-validator-target="errors"][data-field="multiple"]`).within(() => {
       cy.get(`div[error="presence"]`).should("exist");
       cy.get(`div[error="length-min"]`).should("exist")
     });

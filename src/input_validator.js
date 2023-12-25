@@ -14,26 +14,40 @@ export default class extends Controller {
   }
 
   validateMultiple(target, errors) {}
-  handleValidations(target, errors) {
+
+  handleValidations(target, value, errors) {
     if (target.hasAttribute("data-validations")) {
-      this.validateMultiple(target, errors);
-      return
-    }
-    if (target.hasAttribute("data-validate-presence")) {
-      Validate.presence(target, errors);
+      this.validateMultiple(value, errors);
     }
 
-    if (target.hasAttribute("data-validate-length")) {
-      Validate.length(target, errors);
+    if (
+      target.hasAttribute("data-validate-presence") &&
+      target.getAttribute("data-validate-presence") != "false"
+    ) {
+      Validate.presence(value, errors);
     }
 
-    if (target.hasAttribute("data-validate-numericality")) {
-      Validate.numericality(target, errors);
+    if (
+      target.hasAttribute("data-validate-length") &&
+      target.getAttribute("data-validate-length").length > 2
+    ) {
+      const [min, max] = target
+        .getAttribute("data-validate-length")
+        .split(",")
+        .map(Number);
+
+      Validate.length(value, errors, { min, max });
+    }
+
+    if (
+      target.hasAttribute("data-validate-numericality") &&
+      target.getAttribute("data-validate-numericality") != "false"
+    ) {
+      Validate.numericality(value, errors);
     }
   }
 
-  validateInput({ params: { validations }, target }) {
-    console.log("validateInput")
+  validateInput({ params: { validations }, target, target: { value } }) {
     let field = getField(target);
     let [errorsContainer] = this.errorsTargets.filter(
       (item) => item.getAttribute("data-field") == field
@@ -43,7 +57,7 @@ export default class extends Controller {
 
     let errors = [];
 
-    this.handleValidations(target, errors);
+    this.handleValidations(target, value, errors);
 
     if (errors.length) {
       errors.forEach((error) => {
