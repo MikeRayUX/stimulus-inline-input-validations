@@ -10,15 +10,19 @@ export default class extends Controller {
   connect() {
     this.textFieldTargets.forEach((field) => {
       field.setAttribute("data-action", "input->input-validator#validateInput");
+
+      field.addEventListener("blur", (event) => {
+        this.validateInput(event);
+      });
     });
   }
 
   validateMultiple(target, errors) {}
 
   handleValidations(target, value, errors) {
-    if (target.hasAttribute("data-validations")) {
-      this.validateMultiple(value, errors);
-    }
+    // if (target.hasAttribute("data-validations")) {
+    //   this.validateMultiple(value, errors);
+    // }
 
     if (
       target.hasAttribute("data-validate-presence") &&
@@ -36,7 +40,7 @@ export default class extends Controller {
         .split(",")
         .map(Number);
 
-      Validate.length(value, errors, { min, max });
+      Validate.length(value, { min, max }, errors);
     }
 
     if (
@@ -54,7 +58,7 @@ export default class extends Controller {
     }
   }
 
-  validateInput({ target, target: { value } }) {
+  validateInput({ target, target: { value} }) {
     let field = getField(target);
     let [errorsContainer] = this.errorsTargets.filter(
       (item) => item.getAttribute("data-field") == field

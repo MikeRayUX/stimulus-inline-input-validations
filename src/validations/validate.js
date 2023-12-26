@@ -5,25 +5,22 @@ const Validate = {
     }
   },
 
-  length(value, errors, minMax) {
-    if (!value.length) return;
-    if (value.length < minMax.min) {
+  length(value, length, errors) {
+    if (value.length < length.min) {
       errors.push({
         type: "length-min",
-        message: `Too short. Minimum ${minMax.min} characters`,
+        message: `Too short. Minimum ${length.min} characters`,
       });
     }
-    if (value.length > minMax.max) {
+    if (value.length > length.max) {
       errors.push({
         type: "length-max",
-        message: `Too long. Maximum ${minMax.max} characters`,
+        message: `Too long. Maximum ${length.max} characters`,
       });
     }
   },
 
   numericality(value, errors) {
-    if (!value.length) return;
-
     const numberRegex = /^[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/;
 
     if (!numberRegex.test(value)) {
@@ -32,8 +29,6 @@ const Validate = {
   },
 
   email(value, errors) {
-    if (!value.length) return;
-
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(value)) {
