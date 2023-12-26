@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 import Validate from "./validations/validate";
 import RailsValidations from "./validations/rails_validations";
-import { getField } from "./helpers/node_helper";
 
 // Connects to data-controller="input-validator"
 export default class extends Controller {
@@ -59,7 +58,7 @@ export default class extends Controller {
   }
 
   validateInput({ target, target: { value} }) {
-    let field = getField(target);
+    let field = target.getAttribute("data-field");
     let [errorsContainer] = this.errorsTargets.filter(
       (item) => item.getAttribute("data-field") == field
     );
