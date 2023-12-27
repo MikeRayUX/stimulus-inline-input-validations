@@ -74,11 +74,12 @@ performed on input listener and blur events.
 | `data-validate-length="5,10"` | Validates length in format `"min,max"` | `<div error="length-min">Too short. Must be 5 characters long</div>`|
 | `data-validate-numericality="true"` | Ensures input value is a Number | `<div error="numericality">Must be a number</div>`|
 | `data-validate-email="true"` | Ensures input value is in Email format | `<div error="email">Invalid email format</div>`|
-| `data-validations="[{"presence": true}, {"email": true}, {"numericality": true}, {"length": {"min": 5, "max": 10}}]"` | Handles multiple validations from a json-friendly-string| `<div error="email">Invalid email format</div>`|
+| `data-validations="[{"presence": true}, {"email": true}, {"numericality": true}, {"length": {"min": 5, "max": 10}}]"` | Handles multiple validations from a json-friendly-string| `<div error="presence">...</div> <div error="length-min">...</div> <div error="numericality">...</div> <div error="email">...</div>`|
 
+    
 ## Multiple validations passed as a json-friendly string
 
-You can pass multiple validations with the `data-validations` attribute.
+You can also pass multiple validations at once with the `data-validations` attribute.
 
 Example:
 
