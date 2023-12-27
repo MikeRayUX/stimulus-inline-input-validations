@@ -14,14 +14,14 @@
     {
       "imports": {
         "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js",
-        "stimulus-rails-inline-input-validations": "./dist/stimulus-rails-inline-input-validations.module.js"
+        "stimulus-inline-input-validations": "./dist/stimulus-inline-input-validations.module.js"
       }
     }
     </script>
 
     <script type="module">
     import { Application } from "@hotwired/stimulus";
-    import { InputValidator } from "stimulus-rails-inline-input-validations";
+    import { InputValidator } from "stimulus-inline-input-validations";
 
     (() => {
       const application = Application.start();

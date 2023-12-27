@@ -1,18 +1,18 @@
 {
-  "name": "stimulus-rails-inline-input-validations",
+  "name": "stimulus-inline-input-validations",
   "version": "1.0.0",
   "description": "A Stimulus controller for rendering rails model validation errors inline on form inputs",
   "source": "src/index.js",
-  "main": "./dist/stimulus-rails-inline-input-validations",
-  "module": "./dist/stimulus-rails-inline-input-validations.module.js",
+  "main": "./dist/stimulus-inline-input-validations",
+  "module": "./dist/stimulus-inline-input-validations.module.js",
   "repository": {
-    "url": "https://github.com/mikerayux/stimulus-rails-inline-input-validations",
+    "url": "https://github.com/mikerayux/stimulus-inline-input-validations",
     "type": "git"
   },
   "scripts": {
     "build": "npm run build-esm && npm run build-cjs",
-    "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-rails-inline-input-validations.cjs",
-    "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-rails-inline-input-validations.module.js",
+    "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-inline-input-validations.cjs",
+    "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-inline-input-validations.module.js",
     "prepublish": "npm run build",
     "test": "yarn run build && yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome ",
     "cy:open": "yarn run cypress open"

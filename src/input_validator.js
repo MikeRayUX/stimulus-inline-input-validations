@@ -1,6 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
 import Validate from "./validations/validate";
-import RailsValidations from "./validations/rails_validations";
 
 // Connects to data-controller="input-validator"
 export default class extends Controller {
