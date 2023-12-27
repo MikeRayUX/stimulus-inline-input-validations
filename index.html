@@ -49,7 +49,7 @@
             <div
               data-input-validator-target="errors"
               data-field="fullName"
-              class="text-sm text-red-500"></div>
+              class=""></div>
           </div>
           <!-- presence end-->
 
@@ -66,7 +66,7 @@
             <div
               data-input-validator-target="errors"
               data-field="userName"
-              class="text-sm text-red-500"></div>
+              class=""></div>
           </div>
           <!-- length end-->
 
@@ -83,7 +83,7 @@
             <div
               data-input-validator-target="errors"
               data-field="currency"
-              class="text-sm text-red-500"></div>
+              class=""></div>
           </div>
           <!-- numericality end-->
 
@@ -100,7 +100,7 @@
             <div
               data-input-validator-target="errors"
               data-field="emailField"
-              class="text-sm text-red-500"></div>
+              class=""></div>
           </div>
           <!-- email end-->
         </div>
@@ -124,7 +124,7 @@
             <div
               data-input-validator-target="errors"
               data-field="multiple"
-              class="text-sm text-red-500"></div>
+              class=""></div>
           </div>
         </div>
         <!-- section end-->
@@ -144,8 +144,48 @@
             <div
               data-input-validator-target="errors"
               data-field="railsModel"
-              class="text-sm text-red-500"></div>
+              class=""></div>
           </div>
+        </div>
+        <!-- section end-->
+        <!-- section start -->
+        <div class="w-full max-w-xs flex flex-col justify-center items-center">
+          <h1 class="text-xl text-center font-bold">Custom error styles</h1>
+          <!-- email start-->
+          <div class="flex flex-col justify-center items-start mb-2 w-full">
+            <label for="fullName">CSS (font-size: 14px; color: blue)</label>
+            <input 
+              type="text" 
+              data-input-validator-target="textField" 
+              data-field='customCSS'
+              data-validate-email
+              class="w-full"
+            >
+            <div
+              data-input-validator-target="errors"
+              data-field="customCSS"
+              data-errors-styles-css="font-size: 14px; color: blue;"
+              class=""></div>
+          </div>
+          <!-- email end-->
+
+          <!-- email start-->
+          <div class="flex flex-col justify-center items-start mb-2 w-full">
+            <label for="fullName">Classes (text-lg text-purple-600 font-bold)</label>
+            <input 
+              type="text" 
+              data-input-validator-target="textField" 
+              data-field='customClasses'
+              data-validate-email
+              class="w-full"
+            >
+            <div
+              data-input-validator-target="errors"
+              data-field="customClasses"
+              data-errors-styles-class="text-lg text-purple-600 font-bold"
+              class=""></div>
+          </div>
+          <!-- email end-->
         </div>
         <!-- section end-->
       </div>

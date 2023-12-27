@@ -19,10 +19,6 @@ export default class extends Controller {
   validateMultiple(target, errors) {}
 
   handleValidations(target, value, errors) {
-    // if (target.hasAttribute("data-validations")) {
-    //   this.validateMultiple(value, errors);
-    // }
-
     if (
       target.hasAttribute("data-validate-presence") &&
       target.getAttribute("data-validate-presence") != "false"
@@ -57,7 +53,25 @@ export default class extends Controller {
     }
   }
 
-  validateInput({ target, target: { value} }) {
+  errorElement(errorsContainer, error) {
+    let styles = "font-size: 14px; color: red";
+    let classes;
+
+    if (errorsContainer.hasAttribute("data-errors-styles-css")) {
+      styles = errorsContainer.getAttribute("data-errors-styles-css");
+    }
+
+    if (errorsContainer.hasAttribute("data-errors-styles-class")) {
+      styles = null;
+      classes = errorsContainer.getAttribute("data-errors-styles-class");
+    }
+
+    return `<div error="${error.type}" ${
+      styles ? "style='" + styles + "'" : ""
+    } ${classes ? "class='" + classes + "'" : ""} >${error.message}</div>`;
+  }
+
+  validateInput({ target, target: { value } }) {
     let field = target.getAttribute("data-field");
     let [errorsContainer] = this.errorsTargets.filter(
       (item) => item.getAttribute("data-field") == field
@@ -71,7 +85,7 @@ export default class extends Controller {
 
     if (errors.length) {
       errors.forEach((error) => {
-        errorsContainer.innerHTML += `<div error="${error.type}" class="text-sm text-red-500">${error.message}</div>`;
+        errorsContainer.innerHTML += this.errorElement(errorsContainer, error);
         errorsContainer.style.visibility = "visible";
       });
     } else {
