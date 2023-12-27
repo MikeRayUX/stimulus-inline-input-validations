@@ -29,7 +29,7 @@ performed on input listener and blur events.
 ```
 
 3. Add an errors element with the `data-input-validator-target="errors"` attribute and a `data-field` name that matches the
-   corrosponding input element. This is where any errors from the matching field will be rendered.
+   corrosponding input element. This is where any errors from the matching `data-field` will be rendered.
 
 ```html
 <div data-controller="input-validator">
@@ -79,7 +79,7 @@ performed on input listener and blur events.
     
 ## Multiple validations passed as a json-friendly string
 
-You can also pass multiple validations at once with the `data-validations` attribute.
+You can also pass multiple validations as a json-friendly string with the `data-validations` attribute.
 
 Example:
 
@@ -101,16 +101,4 @@ Will render
     <div error="numericality">Must be a number</div>
     <div error="email">Invalid email format</div>
 </div>
-
 ```
-
-
-
-
-
-
-
-
-
-
-
