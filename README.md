@@ -41,7 +41,7 @@ performed on input listener and blur events.
     <div
       data-input-validator-target="errors"
       data-field="fullName"
-      class=""></div>
+      class="">Errors will be rendered here</div>
 </div>
 ```
 
