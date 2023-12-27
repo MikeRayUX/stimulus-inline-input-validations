@@ -15,7 +15,28 @@ export default class extends Controller {
     });
   }
 
-  validateMultiple(target, errors) {}
+  handleJSONValidations(value, validations, errors) {
+    validations.forEach((validation) => {
+      let [validationType] = Object.keys(validation);
+
+      switch (validationType) {
+        case "presence":
+          Validate.presence(value, errors);
+          break;
+        case "length":
+          Validate.length(value, validation.length, errors);
+          break;
+        case "numericality":
+          Validate.numericality(value, errors);
+          break;
+        case "email":
+          Validate.email(value, errors);
+          break;
+        default:
+          break;
+      }
+    });
+  }
 
   handleValidations(target, value, errors) {
     if (
@@ -71,16 +92,28 @@ export default class extends Controller {
   }
 
   validateInput({ target, target: { value } }) {
+    let errors = [];
     let field = target.getAttribute("data-field");
     let [errorsContainer] = this.errorsTargets.filter(
       (item) => item.getAttribute("data-field") == field
     );
 
+    if (target.hasAttribute("data-validations")) {
+      try {
+        let validations = JSON.parse(target.getAttribute("data-validations"));
+        this.handleJSONValidations(value, validations, errors);
+      } catch (error) {
+        console.log(error);
+        console.log(
+          `Error parsing JSON string on the data-validations attribute on data-field="${field}". Is the json string formatted properly?`
+        );
+        return;
+      }
+    } else {
+      this.handleValidations(target, value, errors);
+    }
+
     errorsContainer.innerHTML = ``;
-
-    let errors = [];
-
-    this.handleValidations(target, value, errors);
 
     if (errors.length) {
       errors.forEach((error) => {
