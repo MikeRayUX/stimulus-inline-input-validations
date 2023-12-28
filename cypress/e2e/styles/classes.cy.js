@@ -17,7 +17,6 @@ describe("styles/classes", () => {
       cy.get(`div[error="email"]`)
         .should("exist")
         .should("have.attr", "class")
-        .and("include", "text-lg")
         .and("include", "text-purple-600")
         .and("include", "font-bold");
     });

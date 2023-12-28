@@ -4,7 +4,6 @@ import "./events/input/numericality.cy";
 import "./events/input/email.cy";
 import "./events/input/multiple_validations.cy";
 import "./events/input/json_validations.cy";
-import "./events/input/json_validations.cy";
 
 import "./events/blur/presence.cy";
 import "./events/blur/length.cy";

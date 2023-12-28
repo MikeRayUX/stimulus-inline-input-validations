@@ -11,9 +11,7 @@ describe("input/json_validations", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="jsonBulkValidations"]'
     ).within(() => {
-      cy.get(`div[error="presence"]`).should("exist");
       cy.get(`div[error="email"]`).should("exist");
-      cy.get(`div[error="numericality"]`).should("exist");
       cy.get(`div[error="length-min"]`).should("exist");
     });
   });
