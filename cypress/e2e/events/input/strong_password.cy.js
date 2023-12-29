@@ -34,10 +34,9 @@ describe("input/strong_password", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="passwordField"]'
     ).within(() => {
-      cy.get(`div[error="strong-password-special-character"]`).should("exist").should("contain", "Must contain at least one special character (!@#$%^&*) ");
+      cy.get(`div[error="strong-password-special-character"]`).should("exist").should("contain", "Must contain at least one special character (!@#$%^&*)");
     });
   });
-
 
   it(`Renders all errors`, () => {
     cy.get(`input[data-validate-strong-password][data-field='passwordField']`)
@@ -48,7 +47,7 @@ describe("input/strong_password", () => {
     ).within(() => {
       cy.get(`div[error="strong-password-length"]`).should("exist").should("contain", "Must be at least 10 characters long");
       cy.get(`div[error="strong-password-capital-letter"]`).should("exist").should("contain", "Must contain at least one capital letter (A-Z)");
-      cy.get(`div[error="strong-password-special-character"]`).should("exist").should("contain", "Must contain at least one special character (!@#$%^&*) ");
+      cy.get(`div[error="strong-password-special-character"]`).should("exist").should("contain", "Must contain at least one special character (!@#$%^&*)");
     });
   });
 
