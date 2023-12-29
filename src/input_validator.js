@@ -118,6 +118,14 @@ export default class extends Controller {
   validateInput({ target, target: { value } }) {
     let errors = [];
     let field = target.getAttribute("data-field");
+
+    if (!field) {
+      console.log(
+        `one or more <input> elements are the missing data-field="" attribute.`
+      );
+      return;
+    }
+
     let [errorsContainer] = this.errorsTargets.filter(
       (item) => item.getAttribute("data-field") == field
     );
