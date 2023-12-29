@@ -15,6 +15,9 @@ describe("blur/strong_password", () => {
       cy.get(`div[error="strong-password-length"]`)
         .should("exist")
         .should("contain", "Must be at least 10 characters long");
+      cy.get(`div[error="strong-password-number"]`)
+        .should("exist")
+        .should("contain", "Must contain at least one number");
       cy.get(`div[error="strong-password-capital-letter"]`)
         .should("exist")
         .should("contain", "Must contain at least one capital letter (A-Z)");

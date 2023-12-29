@@ -37,19 +37,24 @@ const Validate = {
   },
 
   strongPassword(value, errors) {
-    const specialCharacterRegex = /[!@#$%^&*]/;
     const capitalLetterRegex = /[A-Z]/;
+    const numberRegex = /[0-9]/;
+    const specialCharacterRegex = /[!@#$%^&*]/;
 
     if (value.length < 10) {
       errors.push({ type: "strong-password-length", message: "Must be at least 10 characters long" });
     }
 
-    if (!specialCharacterRegex.test(value)) {
-      errors.push({ type: "strong-password-special-character", message: "Must contain at least one special character (!@#$%^&*)" });
-    }
-
     if (!capitalLetterRegex.test(value)) {
       errors.push({ type: "strong-password-capital-letter", message: "Must contain at least one capital letter (A-Z)" });
+    }
+
+    if (!numberRegex.test(value)) {
+      errors.push({ type: "strong-password-number", message: "Must contain at least one number" });
+    }
+
+    if (!specialCharacterRegex.test(value)) {
+      errors.push({ type: "strong-password-special-character", message: "Must contain at least one special character (!@#$%^&*)" });
     }
   },
 };
