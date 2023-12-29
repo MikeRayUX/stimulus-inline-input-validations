@@ -3,8 +3,8 @@ describe("input/numericality", () => {
     cy.visit("http://127.0.0.1:8080/");
   });
 
-  it(`renders error div on blank input field with data-validate-numericality attribute set to true`, () => {
-    cy.get(`input[data-validate-numericality][data-field='currency']`)
+  it(`renders error div on blank input field with data-validates-numericality attribute set to true`, () => {
+    cy.get(`input[data-validates-numericality][data-field='currency']`)
       .type("abc")
 
     cy.get(
@@ -14,11 +14,11 @@ describe("input/numericality", () => {
     });
   });
 
-  it(`renders error div on blank input field with data-validate-numericality attribute set to true`, () => {
-    cy.get(`input[data-validate-numericality][data-field='currency']`)
-      .invoke("attr", "data-validate-numericality", "")
+  it(`renders error div on blank input field with data-validates-numericality attribute set to true`, () => {
+    cy.get(`input[data-validates-numericality][data-field='currency']`)
+      .invoke("attr", "data-validates-numericality", "")
 
-    cy.get(`input[data-validate-numericality][data-field='currency']`)
+    cy.get(`input[data-validates-numericality][data-field='currency']`)
       .type("abc")
 
     cy.get(
@@ -29,7 +29,7 @@ describe("input/numericality", () => {
   });
 
   it(`doesn't render error on valid number`, () => {
-    cy.get(`input[data-validate-numericality][data-field='currency']`)
+    cy.get(`input[data-validates-numericality][data-field='currency']`)
       .type("123")
 
     cy.get(

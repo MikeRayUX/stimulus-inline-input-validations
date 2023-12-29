@@ -57,18 +57,18 @@ export default class extends Controller {
 
   handleValidations(target, value, errors) {
     if (
-      target.hasAttribute("data-validate-presence") &&
-      target.getAttribute("data-validate-presence") != "false"
+      target.hasAttribute("data-validates-presence") &&
+      target.getAttribute("data-validates-presence") != "false"
     ) {
       Validate.presence(value, errors);
     }
 
     if (
-      target.hasAttribute("data-validate-length") &&
-      target.getAttribute("data-validate-length").length > 2
+      target.hasAttribute("data-validates-length") &&
+      target.getAttribute("data-validates-length").length > 2
     ) {
       const [min, max] = target
-        .getAttribute("data-validate-length")
+        .getAttribute("data-validates-length")
         .split(",")
         .map(Number);
 
@@ -76,22 +76,22 @@ export default class extends Controller {
     }
 
     if (
-      target.hasAttribute("data-validate-numericality") &&
-      target.getAttribute("data-validate-numericality") != "false"
+      target.hasAttribute("data-validates-numericality") &&
+      target.getAttribute("data-validates-numericality") != "false"
     ) {
       Validate.numericality(value, errors);
     }
 
     if (
-      target.hasAttribute("data-validate-email") &&
-      target.getAttribute("data-validate-email") != "false"
+      target.hasAttribute("data-validates-email") &&
+      target.getAttribute("data-validates-email") != "false"
     ) {
       Validate.email(value, errors);
     }
 
     if (
-      target.hasAttribute("data-validate-strong-password") &&
-      target.getAttribute("data-validate-strong-password") != "false"
+      target.hasAttribute("data-validates-strong-password") &&
+      target.getAttribute("data-validates-strong-password") != "false"
     ) {
       Validate.strongPassword(value, errors);
     }

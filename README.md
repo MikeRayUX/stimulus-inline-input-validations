@@ -53,10 +53,10 @@ performed on input listener and blur events.
       type="text" 
       data-input-validator-target="textField" 
       data-field='fullName'
-      data-validate-presence
-      data-validate-length="5,10"
-      data-validate-numericality="true"
-      data-validate-email="true"
+      data-validates-presence
+      data-validates-length="5,10"
+      data-validates-numericality="true"
+      data-validates-email="true"
       >
 
     <div
@@ -70,11 +70,11 @@ performed on input listener and blur events.
 
 | Attribute | Description | Renders |
 | -------- | ----------- |  ---------------  |
-| `data-validate-presence="true"` | Validates presence | `<div error="presence">Can't be blank</div>`
-| `data-validate-length="5,10"` | Validates length in format `"min,max"` | `<div error="length-min">Too short. Must be 5 characters long</div>`|
-| `data-validate-numericality="true"` | Ensures value is a Number | `<div error="numericality">Must be a number</div>`|
-| `data-validate-email="true"` | Ensures value is in Email format | `<div error="email">Invalid email format</div>`|
-| `data-validate-strong-password="true"` | Ensures value is strong password | `<div error="strong-password-length">Must be at least 10 characters long</div>, <div error="strong-password-special-character">Must contain at least one special character (!@#$%^&*) </div>, <div error="strong-password-capital-letter">Must contain at least one capital letter (A-Z)</div>`|
+| `data-validates-presence="true"` | Validates presence | `<div error="presence">Can't be blank</div>`
+| `data-validates-length="5,10"` | Validates length in format `"min,max"` | `<div error="length-min">Too short. Must be 5 characters long</div>`|
+| `data-validates-numericality="true"` | Ensures value is a Number | `<div error="numericality">Must be a number</div>`|
+| `data-validates-email="true"` | Ensures value is in Email format | `<div error="email">Invalid email format</div>`|
+| `data-validates-strong-password="true"` | Ensures value is strong password | `<div error="strong-password-length">Must be at least 10 characters long</div>, <div error="strong-password-special-character">Must contain at least one special character (!@#$%^&*) </div>, <div error="strong-password-capital-letter">Must contain at least one capital letter (A-Z)</div>`|
 | `data-validations="[{"presence": true}, {"email": true}, {"numericality": true}, {"length": {"min": 5, "max": 10}}]"` | Handles multiple validations from a json-friendly-string| `<div error="presence">...</div> <div error="length-min">...</div> <div error="numericality">...</div> <div error="email">...</div>`|
 
     

@@ -4,7 +4,7 @@ describe("blur/strong_password", () => {
   });
 
   it(`renders length error on blur`, () => {
-    cy.get(`input[data-validate-strong-password][data-field='passwordField']`)
+    cy.get(`input[data-validates-strong-password][data-field='passwordField']`)
       .type("abc")
       .focus()
       .realPress("Tab");

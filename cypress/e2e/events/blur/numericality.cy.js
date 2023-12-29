@@ -4,7 +4,7 @@ describe("blur/numericality", () => {
   });
 
   it(`renders numericality error on blur`, () => {
-    cy.get(`input[data-validate-numericality][data-field='currency']`)
+    cy.get(`input[data-validates-numericality][data-field='currency']`)
       .focus()
       .realPress("Tab");
 

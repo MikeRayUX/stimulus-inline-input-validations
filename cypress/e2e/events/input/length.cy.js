@@ -4,7 +4,7 @@ describe("input/length", () => {
   });
 
   it(`renders min error if string too short`, () => {
-    cy.get(`input[data-validate-length="5,10"][data-field='userName']`).type(
+    cy.get(`input[data-validates-length="5,10"][data-field='userName']`).type(
       "abc"
     );
 
@@ -18,7 +18,7 @@ describe("input/length", () => {
   });
 
   it(`renders max error if string too long`, () => {
-    cy.get(`input[data-validate-length="5,10"][data-field='userName']`).type(
+    cy.get(`input[data-validates-length="5,10"][data-field='userName']`).type(
       "12345678910"
     );
 
@@ -32,7 +32,7 @@ describe("input/length", () => {
   });
 
   it(`shows no errors if valid min/max`, () => {
-    cy.get(`input[data-validate-length="5,10"][data-field='userName']`).type(
+    cy.get(`input[data-validates-length="5,10"][data-field='userName']`).type(
       "123456"
     );
 

@@ -7,7 +7,7 @@ describe("input/strong_password", () => {
 
   it(`Renders default length error`, () => {
     cy.get(
-      `input[data-validate-strong-password][data-field='passwordField']`
+      `input[data-validates-strong-password][data-field='passwordField']`
     ).type("Abc!");
 
     cy.get(
@@ -21,7 +21,7 @@ describe("input/strong_password", () => {
 
   it(`Renders capital letter error`, () => {
     cy.get(
-      `input[data-validate-strong-password][data-field='passwordField']`
+      `input[data-validates-strong-password][data-field='passwordField']`
     ).type("abc!");
 
     cy.get(
@@ -35,7 +35,7 @@ describe("input/strong_password", () => {
 
   it(`Renders number error`, () => {
     cy.get(
-      `input[data-validate-strong-password][data-field='passwordField']`
+      `input[data-validates-strong-password][data-field='passwordField']`
     ).type("abc!");
 
     cy.get(`div[error="strong-password-number"]`)
@@ -45,7 +45,7 @@ describe("input/strong_password", () => {
 
   it(`Renders special character error`, () => {
     cy.get(
-      `input[data-validate-strong-password][data-field='passwordField']`
+      `input[data-validates-strong-password][data-field='passwordField']`
     ).type("Abc");
 
     cy.get(
@@ -62,7 +62,7 @@ describe("input/strong_password", () => {
 
   it(`Renders all errors`, () => {
     cy.get(
-      `input[data-validate-strong-password][data-field='passwordField']`
+      `input[data-validates-strong-password][data-field='passwordField']`
     ).type("abc");
 
     cy.get(
@@ -88,7 +88,7 @@ describe("input/strong_password", () => {
 
   it(`Doesn't renders erros on valid password`, () => {
     cy.get(
-      `input[data-validate-strong-password][data-field='passwordField']`
+      `input[data-validates-strong-password][data-field='passwordField']`
     ).type(getRandomStrongPassword(10));
 
     cy.get(

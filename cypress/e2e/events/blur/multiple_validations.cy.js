@@ -4,7 +4,7 @@ describe("blur/multiple_validations", () => {
   });
 
   it(`renders multiple errors on blur`, () => {
-    cy.get(`input[data-validate-email][data-field='multiple']`)
+    cy.get(`input[data-validates-email][data-field='multiple']`)
       .focus()
       .realPress("Tab");
 

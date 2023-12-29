@@ -5,7 +5,7 @@ describe("blur/length", () => {
 
   it(`renders length error on blur`, () => {
     cy.get(
-      `input[data-validate-length][data-field='userName']`
+      `input[data-validates-length][data-field='userName']`
     ).focus().realPress("Tab");
 
     cy.get(

@@ -4,7 +4,7 @@ describe("blur/email", () => {
   });
 
   it(`renders email format error on blur`, () => {
-    cy.get(`input[data-validate-email][data-field='emailField']`)
+    cy.get(`input[data-validates-email][data-field='emailField']`)
       .focus()
       .realPress("Tab");
 

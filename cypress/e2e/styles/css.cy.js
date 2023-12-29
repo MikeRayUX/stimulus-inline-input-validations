@@ -4,7 +4,7 @@ describe("styles/css", () => {
   });
 
   it(`It applys default css styles if none are passed as data-errors-styles-css attribute`, () => {
-    cy.get(`input[data-validate-email][data-field="customCSS"]`)
+    cy.get(`input[data-validates-email][data-field="customCSS"]`)
       .type("abc")
       .clear();
 
