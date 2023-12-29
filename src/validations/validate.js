@@ -38,7 +38,7 @@ const Validate = {
 
   strongPassword(value, errors) {
     const capitalLetterRegex = /[A-Z]/;
-    const numberRegex = /[0-9]/;
+    const numberRegex = /^[+-]?(\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/;
     const specialCharacterRegex = /[!@#$%^&*]/;
 
     if (value.length < 10) {
