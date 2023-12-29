@@ -6,9 +6,9 @@ const Validate = {
   },
 
   length(value, length, errors) {
-    console.log("value", value)
-    console.log("length", length)
-    console.log("errors", errors)
+    console.log("value", value);
+    console.log("length", length);
+    console.log("errors", errors);
     if (value.length < length.min) {
       errors.push({
         type: "length-min",
@@ -36,6 +36,23 @@ const Validate = {
 
     if (!emailRegex.test(value)) {
       errors.push({ type: "email", message: "Invalid email format" });
+    }
+  },
+
+  strongPassword(value, errors) {
+    const specialCharacterRegex = /[!@#$%^&*]/;
+    const capitalLetterRegex = /[A-Z]/;
+
+    if (value.length < 10) {
+      errors.push({ type: "strong-password-length", message: "Must be at least 10 characters long" });
+    }
+
+    if (!specialCharacterRegex.test(value)) {
+      errors.push({ type: "strong-password-special-character", message: "Must contain at least one special character (!@#$%^&*)" });
+    }
+
+    if (!capitalLetterRegex.test(value)) {
+      errors.push({ type: "strong-password-capital-letter", message: "Must contain at least one capital letter (A-Z)" });
     }
   },
 };

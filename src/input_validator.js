@@ -32,6 +32,9 @@ export default class extends Controller {
         case "email":
           Validate.email(value, errors);
           break;
+        case "password":
+          Validate.strongPassword(value, errors);
+          break;
         default:
           break;
       }
@@ -70,6 +73,13 @@ export default class extends Controller {
       target.getAttribute("data-validate-email") != "false"
     ) {
       Validate.email(value, errors);
+    }
+
+    if (
+      target.hasAttribute("data-validate-strong-password") &&
+      target.getAttribute("data-validate-strong-password") != "false"
+    ) {
+      Validate.strongPassword(value, errors);
     }
   }
 
