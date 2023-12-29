@@ -21,19 +21,33 @@ export default class extends Controller {
 
       switch (validationType) {
         case "presence":
-          Validate.presence(value, errors);
+          if (validation.presence) {
+            Validate.presence(value, errors);
+          }
           break;
         case "length":
-          Validate.length(value, validation.length, errors);
+          if (validation.length.min && validation.length.max) {
+            Validate.length(value, validation.length, errors);
+          } else {
+            console.log(
+              `Couldn't validate length (missing keys min or max)`
+            );
+          }
           break;
         case "numericality":
-          Validate.numericality(value, errors);
+          if (validation.numericality) {
+            Validate.numericality(value, errors);
+          }
           break;
         case "email":
-          Validate.email(value, errors);
+          if (validation.email) {
+            Validate.email(value, errors);
+          }
           break;
-        case "password":
-          Validate.strongPassword(value, errors);
+        case "strong_password":
+          if (validation.strong_password) {
+            Validate.strongPassword(value, errors);
+          }
           break;
         default:
           break;
