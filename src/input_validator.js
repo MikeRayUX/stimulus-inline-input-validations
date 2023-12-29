@@ -3,10 +3,10 @@ import Validate from "./validations/validate";
 
 // Connects to data-controller="input-validator"
 export default class extends Controller {
-  static targets = ["textField", "errors"];
+  static targets = ["field", "errors"];
 
   connect() {
-    this.textFieldTargets.forEach((field) => {
+    this.fieldTargets.forEach((field) => {
       field.setAttribute("data-action", "input->input-validator#validateInput");
 
       field.addEventListener("blur", (event) => {

@@ -14,13 +14,13 @@ performed on input listener and blur events.
 </div>
 
 ```
-2. Add an `<input>` element with the `data-input-validator-target="textField"` and `data-field` attribute that uniquely identifies the field.
+2. Add an `<input>` element with the `data-input-validator-target="field"` and `data-field` attribute that uniquely identifies the field.
 
 ```html
 <div data-controller="input-validator">
     <input 
       type="text" 
-      data-input-validator-target="textField" 
+      data-input-validator-target="field" 
       data-field='fullName'
     >
     ...
@@ -35,7 +35,7 @@ performed on input listener and blur events.
 <div data-controller="input-validator">
     <input 
       type="text" 
-      data-input-validator-target="textField" 
+      data-input-validator-target="field" 
       data-field='fullName'>
 
     <div
@@ -51,7 +51,7 @@ performed on input listener and blur events.
 <div data-controller="input-validator">
     <input 
       type="text" 
-      data-input-validator-target="textField" 
+      data-input-validator-target="field" 
       data-field='fullName'
       data-validates-presence
       data-validates-length="5,10"
@@ -87,7 +87,7 @@ Example:
 ```html
 <input 
   type="text" 
-  data-input-validator-target="textField" 
+  data-input-validator-target="field" 
   data-field='jsonBulkValidations'
   data-validations='[{"presence": true}, {"email": true}, {"numericality": true}, {"length": {"min": 5, "max": 10}}]'
 >
