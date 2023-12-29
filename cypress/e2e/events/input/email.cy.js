@@ -4,7 +4,7 @@ describe("input/email", () => {
   });
 
   it(`renders error div on blank input field with data-validate-numericality attribute set to true`, () => {
-    cy.get(`input[data-validate-email="true"][data-field='emailField']`)
+    cy.get(`input[data-validate-email][data-field='emailField']`)
       .type("abc")
 
     cy.get(
@@ -15,7 +15,7 @@ describe("input/email", () => {
   });
 
   it(`doesnt render error div on valid email`, () => {
-    cy.get(`input[data-validate-email="true"][data-field='emailField']`)
+    cy.get(`input[data-validate-email][data-field='emailField']`)
       .type("abc@sample.com")
 
     cy.get(
@@ -27,7 +27,7 @@ describe("input/email", () => {
 
 
   it(`renders error div on blank input field with data-validate-email attribute set to true`, () => {
-    cy.get(`input[data-validate-email="true"][data-field='emailField']`)
+    cy.get(`input[data-validate-email][data-field='emailField']`)
       .invoke("attr", "data-validate-email", "")
 
     cy.get(`input[data-validate-email][data-field='emailField']`)

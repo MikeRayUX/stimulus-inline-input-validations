@@ -4,7 +4,7 @@ describe("blur/presence", () => {
   });
 
   it(`renders presence error on blur`, () => {
-    cy.get(`input[data-validate-presence="true"][data-field='fullName']`)
+    cy.get(`input[data-validate-presence][data-field='fullName']`)
       .focus()
       .realPress("Tab");
 
