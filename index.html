@@ -30,10 +30,11 @@
   </script>
 </head>
 
-<body>
+<body data-controller="input-validator">
   <div class="relative bg-gradient-to-bl from-indigo-100 via-transparent dark:from-indigo-950 dark:via-transparent">
-    <div class="w-full pt-10 pb-4 mx-auto">
-      <div class="flex flex-row justify-center items-center">
+    <!-- hero start -->
+    <div class="w-full pb-4 mx-auto">
+      <div class="flex flex-row justify-center items-center py-20">
         <div class="mt-4 mb-8 max-w-2xl">
           <h1 class="mb-4 font-bold text-slate-800 text-4xl lg:text-5xl dark:text-slate-200 text-center">
             Stimulus inline input validations
@@ -45,12 +46,12 @@
       </div>
       <div class="h-[1px] w-full bg-slate-300"></div>
     </div>
-    <!-- End Hero -->
-    <div class="container mx-auto p-4 w-full" data-controller="input-validator" data-action="something">
+    <!-- hero end -->
+    <!-- section start-->
+    <div class="container mx-auto p-4 w-full">
       <h1 class="text-4xl text-center font-bold text-slate-800 mb-10">Standard Validations</h1>
-      <!-- section start-->
       <div class="space-y-16">
-
+        <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto mb-6">
           <div class="flex flex-row justify-between items-center">
             <h3 class="block text-2xl font-bold text-slate-800 dark:text-white mb-1 ">
@@ -80,9 +81,9 @@
           </div>
           <!-- field start-->
         </div>
-        <!-- section end-->
+        <!-- validation end-->
 
-        <!-- section start-->
+        <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
             <h3 class="block text-2xl font-bold text-slate-800 dark:text-white mb-1">
@@ -111,9 +112,9 @@
           </div>
           <!-- field start-->
         </div>
-        <!-- section end-->
+        <!-- validation end-->
 
-        <!-- section start-->
+        <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
             <h3 class="block text-2xl font-bold text-slate-800 dark:text-white mb-1 ">
@@ -142,9 +143,9 @@
           </div>
           <!-- field start-->
         </div>
-        <!-- section end-->
+        <!-- validation end-->
 
-        <!-- section start-->
+        <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
             <h3 class="block text-2xl font-bold text-slate-800 dark:text-white mb-1 ">
@@ -173,13 +174,20 @@
           </div>
           <!-- field start-->
         </div>
-        <!-- section end-->
+        <!-- validation end-->
+      </div>
+    </div>
+    <!-- section end-->
 
-        <!-- section start-->
+    <!-- section start-->
+    <div class="container mx-auto p-4 w-full">
+      <h1 class="text-4xl text-center font-bold text-slate-800 mb-10">Multiple Validations</h1>
+      <div class="space-y-16">
+        <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
             <h3 class="block text-2xl font-bold text-slate-800 dark:text-white mb-1 ">
-              Mutliple validations
+              Standard HTML attributes
             </h3>
             <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
               <span class="text-blue-300 font-semibold">data-validate-*</span>
@@ -205,9 +213,9 @@
           </div>
           <!-- field start-->
         </div>
-        <!-- section end-->
+        <!-- validation end-->
 
-        <!-- section start-->
+        <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
             <h3 class="block text-2xl font-bold text-slate-800 dark:text-white mb-1 ">
@@ -215,12 +223,11 @@
             </h3>
             <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
               <span class="text-blue-300 font-semibold">data-validations=</span>
-              <span class="text-emerald-300 font-semibold">"[{"email": true}, {"length": {"min": 5, "max": 10}}]"</span>
+              <span class="text-emerald-300 font-semibold">'[{"email": true}, {"length": {"min": 5, "max": 10}}]'</span>
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">A json-friendly string of validations
-            </p>
+            <p class="block text-lg font-normal text-slate-600 dark:text-white">Bulk validations via a json-friendly string</p>
           </div>
 
           <!-- field start-->
@@ -237,9 +244,16 @@
           </div>
           <!-- field start-->
         </div>
-        <!-- section end-->
+        <!-- validation end-->
+      </div>
+    </div>
+    <!-- section end-->
 
-        <!-- section start-->
+    <!-- section start-->
+    <div class="container mx-auto p-4 w-full">
+      <h1 class="text-4xl text-center font-bold text-slate-800 mb-10">Custom Error Styles</h1>
+      <div class="space-y-16">
+        <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
             <h3 class="block text-2xl font-bold text-slate-800 dark:text-white mb-1 ">
@@ -269,9 +283,9 @@
           </div>
           <!-- field start-->
         </div>
-        <!-- section end-->
+        <!-- validation end-->
 
-        <!-- section start-->
+        <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
             <h3 class="block text-2xl font-bold text-slate-800 dark:text-white mb-1 ">
@@ -302,9 +316,10 @@
           </div>
           <!-- field start-->
         </div>
-        <!-- section end-->
+        <!-- validation end-->
       </div>
     </div>
+    <!-- section end-->
 </body>
 
 </html>
