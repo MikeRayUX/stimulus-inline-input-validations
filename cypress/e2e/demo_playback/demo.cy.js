@@ -5,7 +5,7 @@
 //   const SHOW_OFF_DELAY_MS = 850;
 
 //   it(`showcases validations functionality`, () => {
-//     cy.visit("http://localhost:3001/");
+//     cy.visit("http://localhost:8080/");
 
 //     // Presence START
 //     cy.get(

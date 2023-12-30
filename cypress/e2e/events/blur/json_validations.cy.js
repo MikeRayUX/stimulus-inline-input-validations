@@ -1,6 +1,6 @@
 describe("blur/json_validations", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3001/");
+    cy.visit("http://localhost:8080/");
   });
 
   it(`Renders errors from json_string passed to data-validations attribute`, () => {

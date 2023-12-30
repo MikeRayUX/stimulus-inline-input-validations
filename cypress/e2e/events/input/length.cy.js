@@ -1,6 +1,6 @@
 describe("input/length", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3001/");
+    cy.visit("http://localhost:8080/");
   });
 
   it(`renders min error if string too short`, () => {

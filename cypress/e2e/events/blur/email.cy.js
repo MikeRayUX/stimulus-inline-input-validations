@@ -1,6 +1,6 @@
 describe("blur/email", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3001/");
+    cy.visit("http://localhost:8080/");
   });
 
   it(`renders email format error on blur`, () => {

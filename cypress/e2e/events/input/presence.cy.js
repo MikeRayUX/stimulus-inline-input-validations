@@ -1,6 +1,6 @@
 describe("input/presence", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3001/");
+    cy.visit("http://localhost:8080/");
   });
 
   it(`renders error div on blank input field with validate-presence attribute set to true`, () => {
