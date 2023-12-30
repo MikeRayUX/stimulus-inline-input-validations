@@ -1,159 +1,159 @@
-import { Controller } from "@hotwired/stimulus";
-import Validate from "./validations/validate";
+import { Controller } from '@hotwired/stimulus'
+import Validate from './validations/validate'
 
 // Connects to data-controller="input-validator"
 export default class extends Controller {
-  static targets = ["field", "errors"];
+  static targets = ['field', 'errors']
 
-  connect() {
+  connect () {
     this.fieldTargets.forEach((field) => {
-      field.setAttribute("data-action", "input->input-validator#validateInput");
+      field.setAttribute('data-action', 'input->input-validator#validateInput')
 
-      field.addEventListener("blur", (event) => {
-        this.validateInput(event);
-      });
-    });
+      field.addEventListener('blur', (event) => {
+        this.validateInput(event)
+      })
+    })
   }
 
-  handleJSONValidations(value, validations, errors) {
+  handleJSONValidations (value, validations, errors) {
     validations.forEach((validation) => {
-      let [validationType] = Object.keys(validation);
+      const [validationType] = Object.keys(validation)
 
       switch (validationType) {
-        case "presence":
+        case 'presence':
           if (validation.presence) {
-            Validate.presence(value, errors);
+            Validate.presence(value, errors)
           }
-          break;
-        case "length":
+          break
+        case 'length':
           if (validation.length.min && validation.length.max) {
-            Validate.length(value, validation.length, errors);
+            Validate.length(value, validation.length, errors)
           } else {
             console.log(
-              `Couldn't validate length (missing keys min or max)`
-            );
+              'Couldn\'t validate length (missing keys min or max)'
+            )
           }
-          break;
-        case "numericality":
+          break
+        case 'numericality':
           if (validation.numericality) {
-            Validate.numericality(value, errors);
+            Validate.numericality(value, errors)
           }
-          break;
-        case "email":
+          break
+        case 'email':
           if (validation.email) {
-            Validate.email(value, errors);
+            Validate.email(value, errors)
           }
-          break;
-        case "strong_password":
+          break
+        case 'strong_password':
           if (validation.strong_password) {
-            Validate.strongPassword(value, errors);
+            Validate.strongPassword(value, errors)
           }
-          break;
+          break
         default:
-          break;
+          break
       }
-    });
+    })
   }
 
-  handleValidations(target, value, errors) {
+  handleValidations (target, value, errors) {
     if (
-      target.hasAttribute("data-validates-presence") &&
-      target.getAttribute("data-validates-presence") != "false"
+      target.hasAttribute('data-validates-presence') &&
+      target.getAttribute('data-validates-presence') !== 'false'
     ) {
-      Validate.presence(value, errors);
+      Validate.presence(value, errors)
     }
 
     if (
-      target.hasAttribute("data-validates-length") &&
-      target.getAttribute("data-validates-length").length > 2
+      target.hasAttribute('data-validates-length') &&
+      target.getAttribute('data-validates-length').length > 2
     ) {
       const [min, max] = target
-        .getAttribute("data-validates-length")
-        .split(",")
-        .map(Number);
+        .getAttribute('data-validates-length')
+        .split(',')
+        .map(Number)
 
-      Validate.length(value, { min, max }, errors);
+      Validate.length(value, { min, max }, errors)
     }
 
     if (
-      target.hasAttribute("data-validates-numericality") &&
-      target.getAttribute("data-validates-numericality") != "false"
+      target.hasAttribute('data-validates-numericality') &&
+      target.getAttribute('data-validates-numericality') !== 'false'
     ) {
-      Validate.numericality(value, errors);
+      Validate.numericality(value, errors)
     }
 
     if (
-      target.hasAttribute("data-validates-email") &&
-      target.getAttribute("data-validates-email") != "false"
+      target.hasAttribute('data-validates-email') &&
+      target.getAttribute('data-validates-email') !== 'false'
     ) {
-      Validate.email(value, errors);
+      Validate.email(value, errors)
     }
 
     if (
-      target.hasAttribute("data-validates-strong-password") &&
-      target.getAttribute("data-validates-strong-password") != "false"
+      target.hasAttribute('data-validates-strong-password') &&
+      target.getAttribute('data-validates-strong-password') !== 'false'
     ) {
-      Validate.strongPassword(value, errors);
+      Validate.strongPassword(value, errors)
     }
   }
 
-  errorElement(errorsContainer, error) {
-    let styles = "font-size: 14px; color: red";
-    let classes;
+  errorElement (errorsContainer, error) {
+    let styles = 'font-size: 14px; color: red'
+    let classes
 
-    if (errorsContainer.hasAttribute("data-errors-styles-css")) {
-      styles = errorsContainer.getAttribute("data-errors-styles-css");
+    if (errorsContainer.hasAttribute('data-errors-styles-css')) {
+      styles = errorsContainer.getAttribute('data-errors-styles-css')
     }
 
-    if (errorsContainer.hasAttribute("data-errors-styles-class")) {
-      styles = null;
-      classes = errorsContainer.getAttribute("data-errors-styles-class");
+    if (errorsContainer.hasAttribute('data-errors-styles-class')) {
+      styles = null
+      classes = errorsContainer.getAttribute('data-errors-styles-class')
     }
 
     return `<div error="${error.type}" ${
-      styles ? "style='" + styles + "'" : ""
-    } ${classes ? "class='" + classes + "'" : ""} >${error.message}</div>`;
+      styles ? "style='" + styles + "'" : ''
+    } ${classes ? "class='" + classes + "'" : ''} >${error.message}</div>`
   }
 
-  validateInput({ target, target: { value } }) {
-    let errors = [];
-    let field = target.getAttribute("data-field");
+  validateInput ({ target, target: { value } }) {
+    const errors = []
+    const field = target.getAttribute('data-field')
 
     if (!field) {
       console.log(
-        `one or more <input> elements are the missing data-field="" attribute.`
-      );
-      return;
+        'one or more <input> elements are the missing data-field="" attribute.'
+      )
+      return
     }
 
-    let [errorsContainer] = this.errorsTargets.filter(
-      (item) => item.getAttribute("data-field") == field
-    );
+    const [errorsContainer] = this.errorsTargets.filter(
+      (item) => item.getAttribute('data-field') === field
+    )
 
-    if (target.hasAttribute("data-validations")) {
+    if (target.hasAttribute('data-validations')) {
       try {
-        let validations = JSON.parse(target.getAttribute("data-validations"));
-        this.handleJSONValidations(value, validations, errors);
+        const validations = JSON.parse(target.getAttribute('data-validations'))
+        this.handleJSONValidations(value, validations, errors)
       } catch (error) {
-        console.log(error);
+        console.log(error)
         console.log(
           `Error parsing JSON string on the data-validations attribute on data-field="${field}". Is the json string formatted properly?`
-        );
-        return;
+        )
+        return
       }
     } else {
-      this.handleValidations(target, value, errors);
+      this.handleValidations(target, value, errors)
     }
 
-    errorsContainer.innerHTML = ``;
+    errorsContainer.innerHTML = ''
 
     if (errors.length) {
       errors.forEach((error) => {
-        errorsContainer.innerHTML += this.errorElement(errorsContainer, error);
-        errorsContainer.style.visibility = "visible";
-      });
+        errorsContainer.innerHTML += this.errorElement(errorsContainer, error)
+        errorsContainer.style.visibility = 'visible'
+      })
     } else {
-      errorsContainer.style.visibility = "invisible";
+      errorsContainer.style.visibility = 'invisible'
     }
   }
 }
