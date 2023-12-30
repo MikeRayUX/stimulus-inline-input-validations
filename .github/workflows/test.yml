@@ -21,7 +21,7 @@ jobs:
         run: yarn install
 
       - name: Start lite-server
-        run: yarn run lite-server 
+        run: yarn run lite-server --open=false
 
       - name: Wait for lite-server to start
         run: sleep 10s
