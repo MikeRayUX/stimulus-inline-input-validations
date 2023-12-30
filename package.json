@@ -34,6 +34,8 @@
     "defaults"
   ],
   "devDependencies": {
+    "cypress": "^13.6.2",
+    "cypress-real-events": "^1.11.0",
     "esbuild": "^0.18.11",
     "eslint": "^8.0.1",
     "eslint-config-standard": "^17.1.0",
@@ -46,8 +48,5 @@
   "peerDependencies": {
     "@hotwired/stimulus": ">= 3.0.0"
   },
-  "dependencies": {
-    "cypress": "^13.6.1",
-    "cypress-real-events": "^1.11.0"
-  }
+  "dependencies": {}
 }
