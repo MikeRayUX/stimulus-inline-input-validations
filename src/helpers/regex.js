@@ -3,7 +3,7 @@ const Regex = {
   email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
   singleNumber: /[0-9]/,
   singleCapitalLetter: /[A-Z]/,
-  singleSpecialCharacter: /[!@#$%^&*]/,
-};
+  singleSpecialCharacter: /[!@#$%^&*]/
+}
 
-export default Regex;
+export default Regex

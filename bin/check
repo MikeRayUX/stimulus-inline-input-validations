@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Exit when any command fails
+set -e
+
+# Check Javascript code formatting
+echo "npx eslint src --fix"
+npx eslint src 
+
+# Run the test suite
+echo 'yarn run build && yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome'
+yarn run build && yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome 
