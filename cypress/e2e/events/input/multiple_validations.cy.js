@@ -1,6 +1,6 @@
 describe("input/multiple_validations", () => {
   beforeEach(() => {
-    cy.visit("http://127.0.0.1:8080/");
+    cy.visit("http://localhost:3001/");
   });
 
   it(`renders multiple errors on field with multiple validations specified`, () => {

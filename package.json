@@ -12,10 +12,11 @@
   "scripts": {
     "lint:html": "htmlhint ./index.html",
     "eslint": "eslint",
-    "build": "npm run build-esm && npm run build-cjs",
+    "build": "yarn run build-esm && yarn run build-cjs",
     "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-inline-input-validations.cjs",
     "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-inline-input-validations.module.js",
-    "prepublish": "npm run build",
+    "dev": "lite-server",
+    "prepublish": "yarn run build",
     "test": "yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome ",
     "cy:open": "yarn run cypress open"
   },
@@ -44,7 +45,7 @@
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
     "htmlhint": "^1.1.4",
-    "live-server": "^1.2.2"
+    "lite-server": "^2.6.1"
   },
   "peerDependencies": {
     "@hotwired/stimulus": ">= 3.0.0"

@@ -1,6 +1,6 @@
 describe("input/numericality", () => {
   beforeEach(() => {
-    cy.visit("http://127.0.0.1:8080/");
+    cy.visit("http://localhost:3001/");
   });
 
   it(`renders error div on blank input field with data-validates-numericality attribute set to true`, () => {

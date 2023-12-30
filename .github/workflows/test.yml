@@ -15,14 +15,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 14
 
       - name: Install dependencies
         run: yarn install
 
+      - name: Start lite-server
+        run: yarn run lite-server 
+
+      - name: Wait for lite-server to start
+        run: sleep 10s
+
       - name: Cypress run
-        uses: cypress-io/github-action@v6
-        with:
-          build: yarn run build
-          browser: ${{ matrix.browser }}
-          start: yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser ${{ matrix.browser }}
+        run: yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser ${{ matrix.browser }}

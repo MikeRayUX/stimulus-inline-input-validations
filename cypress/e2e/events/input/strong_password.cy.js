@@ -2,7 +2,7 @@ import { getRandomStrongPassword } from "../../../support/spec_helper";
 
 describe("input/strong_password", () => {
   beforeEach(() => {
-    cy.visit("http://127.0.0.1:8080/");
+    cy.visit("http://localhost:3001/");
   });
 
   it(`Renders default length error`, () => {

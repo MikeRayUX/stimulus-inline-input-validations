@@ -1,6 +1,6 @@
 describe("blur/numericality", () => {
   beforeEach(() => {
-    cy.visit("http://127.0.0.1:8080/");
+    cy.visit("http://localhost:3001/");
   });
 
   it(`renders numericality error on blur`, () => {

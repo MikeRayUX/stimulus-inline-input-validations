@@ -1,6 +1,6 @@
 describe("styles/classes", () => {
   beforeEach(() => {
-    cy.visit("http://127.0.0.1:8080/");
+    cy.visit("http://localhost:3001/");
   });
 
   it(`It applys default css styles if none are passed as data-errors-styles-css attribute`, () => {
