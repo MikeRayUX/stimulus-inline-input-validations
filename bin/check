@@ -12,5 +12,5 @@ echo "htmlhint ./index.html"
 htmlhint ./index.html
 
 # Run the test suite
-# echo 'yarn run build && yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome'
-# yarn run build && yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome 
+echo 'yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome'
+yarn yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome 

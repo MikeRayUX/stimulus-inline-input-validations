@@ -15,7 +15,7 @@
     "build-cjs": "esbuild src/index.js --format=cjs --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-inline-input-validations.cjs",
     "build-esm": "esbuild src/index.js --format=esm --target=es2020 --minify --bundle --sourcemap=external --external:@hotwired/stimulus --outfile=dist/stimulus-inline-input-validations.module.js",
     "prepublish": "npm run build",
-    "test": "yarn run build && yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome ",
+    "test": "yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser chrome ",
     "cy:open": "yarn run cypress open"
   },
   "author": "Mike Ray Arriaga <m.arriaga.smb@gmail.com>",
