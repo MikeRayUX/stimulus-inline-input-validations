@@ -4,7 +4,7 @@
 set -e
 
 # Check Javascript code formatting
-echo "npx eslint src --fix"
+echo "npx eslint src"
 npx eslint src 
 
 # Run the test suite
