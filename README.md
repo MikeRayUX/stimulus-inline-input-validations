@@ -1,7 +1,18 @@
+[![npm](https://img.shields.io/npm/v/stimulus-inline-input-validations.svg)](https://www.npmjs.com/package/stimulus-inline-input-validations) [![Tests](https://github.com/mikerayux/stimulus-inline-input-validations/actions/workflows/test.yml/badge.svg)](https://github.com/mikerayux/stimulus-inline-input-validations/actions/workflows/ci.yml)
 # Stimulus Inline Input Validations
 
 A Stimulus controller for validating form inputs and rendering their errors in a custom error element. Validations are
 performed on input listener and blur events.
+
+## Installation 
+
+[StimulusJS](https://stimulusjs.org) installation is required.
+
+Add the package to your project:
+
+```bash
+yarn add stimulus-inline-input-validations
+```
 
 ## Getting started
 
@@ -55,8 +66,8 @@ performed on input listener and blur events.
       data-field='fullName'
       data-validates-presence
       data-validates-length="5,10"
-      data-validates-numericality="true"
-      data-validates-email="true"
+      data-validates-numericality
+      data-validates-email
       >
 
     <div
@@ -70,11 +81,11 @@ performed on input listener and blur events.
 
 | Attribute | Description | Renders |
 | -------- | ----------- |  ---------------  |
-| `data-validates-presence="true"` | Validates presence | `<div error="presence">Can't be blank</div>`
+| `data-validates-presence` | Validates presence | `<div error="presence">Can't be blank</div>`
 | `data-validates-length="5,10"` | Validates length in format `"min,max"` | `<div error="length-min">Too short. Must be 5 characters long</div>`|
-| `data-validates-numericality="true"` | Ensures value is a Number | `<div error="numericality">Must be a number</div>`|
-| `data-validates-email="true"` | Ensures value is in Email format | `<div error="email">Invalid email format</div>`|
-| `data-validates-strong-password="true"` | Ensures value is strong password | `<div error="strong-password-length">Must be at least 10 characters long</div>, <div error="strong-password-special-character">Must contain at least one special character (!@#$%^&*) </div>, <div error="strong-password-capital-letter">Must contain at least one capital letter (A-Z)</div>`|
+| `data-validates-numericality` | Ensures value is a Number | `<div error="numericality">Must be a number</div>`|
+| `data-validates-email` | Ensures value is in Email format | `<div error="email">Invalid email format</div>`|
+| `data-validates-strong-password` | Ensures value is strong password | `<div error="strong-password-length">Must be at least 10 characters long</div>, <div error="strong-password-special-character">Must contain at least one special character (!@#$%^&*) </div>, <div error="strong-password-capital-letter">Must contain at least one capital letter (A-Z)</div>`|
 | `data-validations="[{"presence": true}, {"email": true}, {"numericality": true}, {"length": {"min": 5, "max": 10}}]"` | Handles multiple validations from a json-friendly-string| `<div error="presence">...</div> <div error="length-min">...</div> <div error="numericality">...</div> <div error="email">...</div>`|
 
     
