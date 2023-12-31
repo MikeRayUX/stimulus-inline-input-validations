@@ -4,6 +4,10 @@ describe("blur/email", () => {
   });
 
   it(`renders email format error on blur`, () => {
+    if (Cypress.browser.name === "firefox") {
+      cy.log("realPress events library is not supported on firefox. Skipping.");
+      return;
+    }
     cy.get(`input[data-validates-email][data-field='emailField']`)
       .focus()
       .realPress("Tab");

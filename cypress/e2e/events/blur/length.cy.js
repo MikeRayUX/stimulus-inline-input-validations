@@ -4,6 +4,10 @@ describe("blur/length", () => {
   });
 
   it(`renders length error on blur`, () => {
+    if (Cypress.browser.name === "firefox") {
+      cy.log("realPress events library is not supported on firefox. Skipping.");
+      return;
+    }
     cy.get(
       `input[data-validates-length][data-field='userName']`
     ).focus().realPress("Tab");

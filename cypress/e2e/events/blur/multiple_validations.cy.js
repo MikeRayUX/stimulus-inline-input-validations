@@ -4,6 +4,10 @@ describe("blur/multiple_validations", () => {
   });
 
   it(`renders multiple errors on blur`, () => {
+    if (Cypress.browser.name === "firefox") {
+      cy.log("realPress events library is not supported on firefox. Skipping.");
+      return;
+    }
     cy.get(`input[data-validates-email][data-field='multiple']`)
       .focus()
       .realPress("Tab");

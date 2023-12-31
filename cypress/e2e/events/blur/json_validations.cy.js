@@ -4,6 +4,10 @@ describe("blur/json_validations", () => {
   });
 
   it(`Renders errors from json_string passed to data-validations attribute`, () => {
+    if (Cypress.browser.name === "firefox") {
+      cy.log("realPress events library is not supported on firefox. Skipping.");
+      return;
+    }
     cy.get(`input[data-field="jsonBulkValidations"][data-validations]`)
       .focus()
       .realPress("Tab");

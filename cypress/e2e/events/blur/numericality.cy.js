@@ -4,6 +4,10 @@ describe("blur/numericality", () => {
   });
 
   it(`renders numericality error on blur`, () => {
+    if (Cypress.browser.name === "firefox") {
+      cy.log("realPress events library is not supported on firefox. Skipping.");
+      return;
+    }
     cy.get(`input[data-validates-numericality][data-field='currency']`)
       .focus()
       .realPress("Tab");
