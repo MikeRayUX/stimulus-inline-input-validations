@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-22.04
     strategy:
       matrix:
-        browser: [chrome, edge, electron]
+        browser: [chrome, edge, electron, firefox]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
