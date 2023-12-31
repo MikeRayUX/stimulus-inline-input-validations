@@ -10,6 +10,15 @@
   </script>
   <script async src="https://unpkg.com/es-module-shims/dist/es-module-shims.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <link rel="stylesheet" href="./tokyo_night_dark.css">
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((el) => {
+        hljs.highlightElement(el);
+      });
+    });
+  </script>
   <script type="importmap">
     {
       "imports": {
@@ -30,6 +39,7 @@
   </script>
 </head>
 
+
 <body data-controller="input-validator">
   <div class="relative bg-gradient-to-bl from-indigo-100 via-transparent dark:from-indigo-950 dark:via-transparent">
     <!-- hero start -->
@@ -49,8 +59,92 @@
     <!-- hero end -->
     <!-- section start-->
     <div class="container mx-auto p-4 w-full">
+      <h1 class="text-4xl text-center font-bold text-slate-800 mb-10">Getting started</h1>
+      <div class="space-y-0">
+        <!-- validation start-->
+        <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+                1. Add data-input-validator-target and data-field attributes to an input element.
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;input type="text"
+       data-input-validator-target="field"
+       data-field="userName"&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
+        </div>
+        <!-- validation end-->
+
+        <!-- validation start-->
+        <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+                2. Add an errors element with matching data-field attribute
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;div data-input-validator-target="errors"
+     data-field="userName"&gt;&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
+        </div>
+        <!-- validation end-->
+
+        <!-- validation start-->
+        <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+                3. Add, mix, and match validations
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;input ...
+       data-validates-length="5,10"
+       data-validates-numericality
+       data-validates-email&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
+        </div>
+        <!-- validation end-->
+
+        <!-- validation start-->
+        <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+                Validations run on input/blur events, and will render any errors inside the errors element
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;div data-input-validator-target="errors" data-field="userName"&gt;
+  &lt;div error="length-min"&gt;Too short. Minimum 5 characters&lt;/div&gt;
+  &lt;div error="numericality"&gt;Must be a number&lt;/div&gt;
+  &lt;div error="email"&gt;Invalid email format&lt;/div&gt;
+&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
+        </div>
+        <!-- validation end-->
+    </div>
+    <!-- section end-->
+      <div class="h-[1px] w-full bg-slate-300 mb-20"></div>
+    <!-- section start-->
+    <div class="container mx-auto p-4 w-full">
       <h1 class="text-4xl text-center font-bold text-slate-800 mb-10">Standard Validations</h1>
-      <div class="space-y-16">
+      <div class="space-y-12">
         <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto mb-6">
           <div class="flex flex-row justify-between items-center">
@@ -63,7 +157,7 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg text-left font-normal text-slate-600 dark:text-white">Validates min,max length of a
+            <p class="block text-xl text-left font-normal text-slate-600 dark:text-white">Validates min,max length of a
               string</p>
           </div>
 
@@ -80,6 +174,25 @@
             <div data-input-validator-target="errors" data-field="userName" class="mt-1"></div>
           </div>
           <!-- field start-->
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-semibold text-slate-800 dark:text-white">
+                Will render
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;div data-input-validator-target="errors" data-field="userName"&gt;
+  &lt;div error="length-min"&gt;
+    Too short. Minimum 5 characters
+  &lt;/div&gt;
+  &lt;div error="length-max"&gt;
+    Too long. Maximum 10 characters
+  &lt;/div&gt;
+&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
         </div>
         <!-- validation end-->
 
@@ -95,7 +208,7 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">Validates that a field is not blank</p>
+            <p class="block text-xl font-normal text-slate-600 dark:text-white">Validates that a field is not blank</p>
           </div>
 
           <!-- field start-->
@@ -110,6 +223,22 @@
             <div data-input-validator-target="errors" data-field="fullName" class="mt-1"></div>
           </div>
           <!-- field start-->
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-semibold text-slate-800 dark:text-white">
+                Will render:
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;div data-input-validator-target="errors" data-field="userName"&gt;
+  &lt;div error="presence"&gt;
+    Can't be blank
+  &lt;/div&gt;
+&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
         </div>
         <!-- validation end-->
 
@@ -125,7 +254,7 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">Validates if a field is a number</p>
+            <p class="block text-xl font-normal text-slate-600 dark:text-white">Validates if a field is a number</p>
           </div>
 
           <!-- field start-->
@@ -141,6 +270,22 @@
             <div data-input-validator-target="errors" data-field="currency" class="mt-1"></div>
           </div>
           <!-- field start-->
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-semibold text-slate-800 dark:text-white">
+                Will render:
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;div data-input-validator-target="errors" data-field="userName"&gt;
+  &lt;div error="numericality"&gt;
+    Must be a number
+  &lt;/div&gt;
+&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
         </div>
         <!-- validation end-->
 
@@ -156,15 +301,14 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">Validates email format</p>
+            <p class="block text-xl font-normal text-slate-600 dark:text-white">Validates email format</p>
           </div>
 
           <!-- field start-->
           <div class="relative mb-2">
             <input type="text"
               class="peer p-4 block w-full border-slate-200 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
-              data-input-validator-target="field" data-field="emailField" data-validates-email
-              placeholder="emailField">
+              data-input-validator-target="field" data-field="emailField" data-validates-email placeholder="emailField">
             <label for="emailField"
               class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
               Email
@@ -172,6 +316,22 @@
             <div data-input-validator-target="errors" data-field="emailField" class="mt-1"></div>
           </div>
           <!-- field start-->
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-semibold text-slate-800 dark:text-white">
+                Will render:
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;div data-input-validator-target="errors" data-field="userName"&gt;
+  &lt;div error="email"&gt;
+    Invalid email format
+  &lt;/div&gt;
+&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
         </div>
         <!-- validation end-->
 
@@ -187,7 +347,7 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">Validates strong password</p>
+            <p class="block text-xl font-normal text-slate-600 dark:text-white">Validates strong password</p>
           </div>
 
           <!-- field start-->
@@ -203,6 +363,31 @@
             <div data-input-validator-target="errors" data-field="passwordField" class="mt-1"></div>
           </div>
           <!-- field start-->
+          <!-- code example start-->
+          <div class="">
+            <h3 class="block text-xl font-semibold text-slate-800 dark:text-white">
+                Will render:
+            </h3>
+            <pre>
+              <code class="language-html">
+&lt;div data-input-validator-target="errors" data-field="userName"&gt;
+  &lt;div error="strong-password-length"&gt;
+    Must be at least 10 characters long
+  &lt;/div&gt;
+  &lt;div error="strong-password-capital-letter"&gt;
+    Must contain at least one capital letter (A-Z)
+  &lt;/div&gt;
+  &lt;div error="strong-password-number"&gt;
+    Must contain at least one number
+  &lt;/div&gt;
+  &lt;div error="strong-password-special-character"&gt;
+    Must contain at least one special character (!@#$%^&*)
+  &lt;/div&gt;
+&lt;/div&gt;
+              </code>
+            </pre>
+          </div>
+          <!-- code example end-->
         </div>
         <!-- validation end-->
       </div>
@@ -212,7 +397,7 @@
     <!-- section start-->
     <div class="container mx-auto p-4 w-full">
       <h1 class="text-4xl text-center font-bold text-slate-800 mb-10">Multiple Validations</h1>
-      <div class="space-y-16">
+      <div class="space-y-12">
         <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
@@ -224,7 +409,7 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">Length, Presence, Numericality, Email
+            <p class="block text-xl font-normal text-slate-600 dark:text-white">Length, Presence, Numericality, Email
             </p>
           </div>
 
@@ -233,8 +418,7 @@
             <input type="text"
               class="peer p-4 block w-full border-slate-200 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
               data-input-validator-target="field" data-field="multiple" data-validates-presence
-              data-validates-length="5,10" data-validates-numericality data-validates-email
-              placeholder="emailField">
+              data-validates-length="5,10" data-validates-numericality data-validates-email placeholder="emailField">
             <label for="emailField"
               class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
               Start typing something
@@ -257,7 +441,8 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">Bulk validations via a json-friendly string</p>
+            <p class="block text-xl font-normal text-slate-600 dark:text-white">Bulk validations via a json-friendly
+              string</p>
           </div>
 
           <!-- field start-->
@@ -265,7 +450,7 @@
             <input type="text"
               class="peer p-4 block w-full border-slate-200 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
               data-input-validator-target="field" data-field="jsonBulkValidations"
-              data-validations="[{'email': true}, {'length': {'min': 5, 'max': 10}}]"placeholder="emailField">
+              data-validations="[{'email': true}, {'length': {'min': 5, 'max': 10}}]" placeholder="emailField">
             <label for="emailField"
               class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
               Start typing something
@@ -282,7 +467,7 @@
     <!-- section start-->
     <div class="container mx-auto p-4 w-full">
       <h1 class="text-4xl text-center font-bold text-slate-800 mb-10">Custom Error Styles</h1>
-      <div class="space-y-16">
+      <div class="space-y-12">
         <!-- validation start-->
         <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
           <div class="flex flex-row justify-between items-center">
@@ -295,15 +480,14 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">font-size: 14px; color: blue</p>
+            <p class="block text-xl font-normal text-slate-600 dark:text-white">font-size: 14px; color: blue</p>
           </div>
 
           <!-- field start-->
           <div class="relative mb-2">
             <input type="text"
               class="peer p-4 block w-full border-slate-200 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
-              data-input-validator-target="field" data-field="customCSS" data-validates-email
-              placeholder="emailField">
+              data-input-validator-target="field" data-field="customCSS" data-validates-email placeholder="emailField">
             <label for="emailField"
               class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
               Start typing something
@@ -327,7 +511,7 @@
             </span>
           </div>
           <div class="mb-5">
-            <p class="block text-lg font-normal text-slate-600 dark:text-white">
+            <p class="block text-xl font-normal text-slate-600 dark:text-white">
               font-bold text-purple-600 (Tailwind)</p>
           </div>
 
@@ -349,8 +533,9 @@
         <!-- validation end-->
       </div>
     </div>
-    </div>
-    <!-- section end-->
+  </div>
+  </div>
+  <!-- section end-->
 </body>
 
 </html>
