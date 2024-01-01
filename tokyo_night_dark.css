@@ -1,5 +1,5 @@
 pre {
-  margin: 0px !important;
+  margin: -9px !important;
 }
 
 code {
@@ -8,6 +8,9 @@ code {
   border-radius: 14px !important;
 }
 
+.language-bash {
+  color: #9DC5F8 !important;
+}
 /*!
   Theme: Tokyo-night-Dark
   origin: https://github.com/enkia/tokyo-night-vscode-theme
