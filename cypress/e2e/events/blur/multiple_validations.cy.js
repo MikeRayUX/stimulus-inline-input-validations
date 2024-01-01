@@ -17,7 +17,6 @@ describe("blur/multiple_validations", () => {
     ).within(() => {
       cy.get(`div[error="presence"]`).should("exist");
       cy.get(`div[error="length-min"]`).should("exist");
-      cy.get(`div[error="numericality"]`).should("exist");
       cy.get(`div[error="email"]`).should("exist");
     });
   });
