@@ -1,6 +1,8 @@
 [![npm](https://img.shields.io/npm/v/stimulus-inline-input-validations.svg)](https://www.npmjs.com/package/stimulus-inline-input-validations) [![Tests](https://github.com/mikerayux/stimulus-inline-input-validations/actions/workflows/test.yml/badge.svg)](https://github.com/mikerayux/stimulus-inline-input-validations/actions/workflows/ci.yml)
 # Stimulus Inline Input Validations
 
+[Try the Demo Here](https://mikerayux.github.io/stimulus-inline-input-validations/)
+
 A Stimulus controller for validating form inputs and rendering their errors in a custom error element. Validations are
 performed on input listener and blur events.
 
