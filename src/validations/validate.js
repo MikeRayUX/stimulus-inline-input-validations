@@ -56,7 +56,7 @@ const Validate = {
       })
     }
 
-    if (validations.length && Object.prototype.hasOwnProperty.call(validations, 'length')) return
+    if (validations.length && validations.some(validation => Object.keys(validation).includes('length'))) return
     if (value.length < 10) {
       errors.push({
         type: 'strong-password-length',
