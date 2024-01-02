@@ -15,8 +15,11 @@ describe("blur/json_validations", () => {
     cy.get(
       'div[data-input-validator-target="errors"][data-field="jsonBulkValidations"]'
     ).within(() => {
-      cy.get(`div[error="email"]`).should("exist");
+      cy.get(`div[error="presence"]`).should("exist");
       cy.get(`div[error="length-min"]`).should("exist");
+      cy.get(`div[error="strong-password-capital-letter"]`).should("exist");
+      cy.get(`div[error="strong-password-number"]`).should("exist");
+      cy.get(`div[error="strong-password-special-character"]`).should("exist");
     });
   });
 });

@@ -119,7 +119,7 @@ application.register("input-validator", InputValidator)
       <!-- validation start-->
       <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto mb-6">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-black text-slate-800 dark:text-white mb-1 mr-4 ">
             Length
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white">
@@ -318,7 +318,7 @@ application.register("input-validator", InputValidator)
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
             <span class="text-blue-300 font-semibold">data-validations=</span>
-            <span class="text-emerald-300 font-semibold">'[{"email": true}, {"length": {"min": 10 }}]'</span>
+            <span class="text-emerald-300 font-semibold">'[{"presence": true}, {"length": {"min":6, "max":128}}, {"strong_password":true}]'</span>
           </span>
         </div>
         <div class="mb-5">
@@ -331,7 +331,7 @@ application.register("input-validator", InputValidator)
           <input type="text"
             class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="jsonBulkValidations"
-            data-validations="[{'email': true}, {'length': {'min': 5, 'max': 10}}]" placeholder="emailField">
+            data-validations="[{'presence': true}, {'length': {'min':6, 'max':128}}, {'strong_password':true}]" placeholder="emailField">
           <label for="emailField"
             class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Start typing something

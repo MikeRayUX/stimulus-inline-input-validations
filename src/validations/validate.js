@@ -34,21 +34,34 @@ const Validate = {
     }
   },
 
-  strongPassword (value, errors) {
-    if (value.length < 10) {
-      errors.push({ type: 'strong-password-length', message: 'Must be at least 10 characters long' })
-    }
-
+  strongPassword (validations, value, errors) {
     if (!Regex.singleCapitalLetter.test(value)) {
-      errors.push({ type: 'strong-password-capital-letter', message: 'Must contain at least one capital letter (A-Z)' })
+      errors.push({
+        type: 'strong-password-capital-letter',
+        message: 'Must contain at least one capital letter (A-Z)'
+      })
     }
 
     if (!Regex.singleNumber.test(value)) {
-      errors.push({ type: 'strong-password-number', message: 'Must contain at least one number' })
+      errors.push({
+        type: 'strong-password-number',
+        message: 'Must contain at least one number'
+      })
     }
 
     if (!Regex.singleSpecialCharacter.test(value)) {
-      errors.push({ type: 'strong-password-special-character', message: 'Must contain at least one special character (!@#$%^&*)' })
+      errors.push({
+        type: 'strong-password-special-character',
+        message: 'Must contain at least one special character (!@#$%^&*)'
+      })
+    }
+
+    if (validations.length && Object.prototype.hasOwnProperty.call(validations, 'length')) return
+    if (value.length < 10) {
+      errors.push({
+        type: 'strong-password-length',
+        message: 'Must be at least 10 characters long'
+      })
     }
   }
 }

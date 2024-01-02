@@ -45,7 +45,7 @@ export default class extends Controller {
           break
         case 'strong_password':
           if (validation.strong_password) {
-            Validate.strongPassword(value, errors)
+            Validate.strongPassword(validations, value, errors)
           }
           break
         default:
@@ -92,7 +92,7 @@ export default class extends Controller {
       target.hasAttribute('data-validates-strong-password') &&
       target.getAttribute('data-validates-strong-password') !== 'false'
     ) {
-      Validate.strongPassword(value, errors)
+      Validate.strongPassword([], value, errors)
     }
   }
 
