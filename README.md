@@ -16,6 +16,13 @@ Add the package to your project:
 yarn add stimulus-inline-input-validations
 ```
 
+Import and register `InputValidator` to your application
+
+```javascript
+import {InputValidator} from "stimulus-inline-input-validations"
+application.register("input-validator", InputValidator)
+```
+
 ## Getting started
 
 1. Add `data-controller="input-validator"` to your form or any parent element of `<input>` elements you want to validate.
@@ -116,3 +123,52 @@ Will render
     <div error="email">Invalid email format</div>
 </div>
 ```
+
+## Leveraging existing model validations in Rails
+
+1. Add a `json_validations_for` method to `application_helper.rb`
+
+```ruby
+module ApplicationHelper
+  def json_validations_for(model, field)
+    validations_hash = {}
+
+    validators = model.class.validators_on(field)
+    validators.each do |validator|
+      validator_name = validator.class.name.demodulize.underscore.to_sym
+
+      if validator_name == :length_validator
+        options = validator.options.dup
+        validations_hash[:length] = { min: options[:minimum].present? ? options[:minimum] : 1,
+                                      max: options[:maximum].present? ? options[:maximum] : 1000 }
+      end
+
+      validations_hash[:presence] = true if validator_name == :presence_validator
+      validations_hash[:numericality] = true if validator_name == :numericality_validator
+    end
+
+    validations_hash[:strong_password] = true if field == :password
+    validations_hash[:email] = true if field == :email
+
+    validations = validations_hash.map do |key, value|
+      { key.to_s => value }
+    end
+
+    validations.to_json.html_safe
+  end
+end
+```
+
+2. Use the `json_validations_for` helper method in your Rails form helpers
+
+```erb
+<%= f.text_field :email,
+                  data: {
+                    input_validator_target:"field",
+                    field: :email,
+                    validations: json_validations_for(@user, :email)
+                  } %>
+<div data-input-validator-target="errors" data-field="email"></div>
+```
+
+Make sure you have a matching errors element with `data-input-validator-target="errors"` and matching `data-field=""`
