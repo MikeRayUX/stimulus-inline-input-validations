@@ -420,11 +420,11 @@ application.register("input-validator", InputValidator)
     <h1 class="text-4xl text-center font-black text-slate-800 mb-10">How to use</h1>
     <div class="space-y-0">
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
         <!-- code example start-->
         <div class="">
           <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
-            1. Add data-input-validator-target and data-field attributes to an input element.
+            1. Add `data-input-validator-target` and `data-field` attributes to an input element.
           </h3>
           <pre>
             <code class="language-html">
@@ -437,11 +437,11 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
         <!-- code example start-->
         <div class="">
           <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
-            2. Add an errors element with matching data-field attribute
+            2. Add an errors element with matching `data-field` attribute
           </h3>
           <pre>
             <code class="language-html">
@@ -454,7 +454,7 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
         <!-- code example start-->
         <div class="">
           <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
@@ -471,7 +471,7 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
         <!-- code example start-->
         <div class="">
           <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
@@ -493,6 +493,86 @@ application.register("input-validator", InputValidator)
     </div>
   </div>
   <!-- section end-->
+
+  <!-- section start-->
+  <div class="container mx-auto p-4 w-full">
+    <h1 class="text-4xl text-center font-black text-slate-800 mb-1">Usage in Rails:</h1>
+    <h1 class="text-3xl text-center font-bold text-slate-800 mb-10">Leveraging existing model validations in Rails form helpers</h1>
+    <div class="space-y-0">
+      <!-- validation start-->
+      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+        <!-- code example start-->
+        <div class="">
+          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+              1. Add a `json_validations_for` method to `application_helper.rb`
+          </h3>
+          <pre>
+            <code class="language-ruby">
+module ApplicationHelper
+  def json_validations_for(model, field)
+    validations_hash = {}
+
+    validators = model.class.validators_on(field)
+    validators.each do |validator|
+      validator_name = validator.class.name.demodulize.underscore.to_sym
+
+      if validator_name == :length_validator
+        options = validator.options.dup
+        validations_hash[:length] = { min: options[:minimum].present? ? options[:minimum] : 1,
+                                      max: options[:maximum].present? ? options[:maximum] : 1000 }
+      end
+
+      validations_hash[:presence] = true if validator_name == :presence_validator
+      validations_hash[:numericality] = true if validator_name == :numericality_validator
+    end
+
+    validations_hash[:strong_password] = true if field == :password
+    validations_hash[:email] = true if field == :email
+
+    validations = validations_hash.map do |key, value|
+      { key.to_s => value }
+    end
+
+    validations.to_json.html_safe
+  end
+end
+            </code>
+          </pre>
+        </div>
+        <!-- code example end-->
+      </div>
+      <!-- validation end-->
+      <!-- validation start-->
+      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+        <!-- code example start-->
+        <div class="">
+          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+              2. Use the `json_validations_for` helper method in your Rails form helpers
+          </h3>
+          <pre>
+            <code class="language-html">
+<%= f.text_field :email,
+      data: {
+        input_validator_target:"field",
+        field: :email,
+        validations: json_validations_for(@user, :email)
+      } %>
+&lt;div data-input-validator-target="errors" data-field="email"&gt;&lt;/div&gt;
+          </code>
+          </pre>
+        </div>
+        <!-- code example end-->
+      </div>
+      <!-- validation end-->
+    </div>
+  </div>
+  <!-- section end-->
+    <h1 class="text-lg font-semibold text-underline text-slate-800 flex flex-row justify-center items-center py-2 mb-4">Made with 
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mx-1 w-6 h-6">
+        <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+      </svg>
+      in Akron, OH by <a href="https://twitter.com/mike_ray_ux" target="_blank" class="ml-1 underline text-blue-600">Mike Ray Arriaga</a>
+    </h1>
 </body>
 
 </html>

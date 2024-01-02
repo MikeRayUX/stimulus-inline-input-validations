@@ -4,7 +4,7 @@
 [Try the Demo Here](https://mikerayux.github.io/stimulus-inline-input-validations/)
 
 A Stimulus controller for validating form inputs and rendering their errors in a custom error element. Validations are
-performed on input listener and blur events.
+performed on input and blur events.
 
 Looking for another awesome validations library to try? Check out [Formulus](https://github.com/marcoroth/formulus)
 
