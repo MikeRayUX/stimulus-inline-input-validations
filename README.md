@@ -124,7 +124,7 @@ Will render
 </div>
 ```
 
-## Leveraging existing model validations in Rails
+## Usage in Rails: Leveraging existing model validations in Rails form helpers
 
 1. Add a `json_validations_for` method to `application_helper.rb`
 
