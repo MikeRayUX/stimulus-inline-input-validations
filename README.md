@@ -6,6 +6,8 @@
 A Stimulus controller for validating form inputs and rendering their errors in a custom error element. Validations are
 performed on input listener and blur events.
 
+Looking for another awesome validations library to try? Check out [Formulus](https://github.com/marcoroth/formulus)
+
 ## Installation 
 
 [StimulusJS](https://stimulusjs.org) installation is required.
