@@ -3,6 +3,8 @@
 
 [Try the Demo Here](https://mikerayux.github.io/stimulus-inline-input-validations/)
 
+[Check out the screencast](https://www.youtube.com/watch?v=XUPmmgzc2ZY)
+
 A Stimulus controller for validating form inputs and rendering their errors in a custom error element. Validations are
 performed on input and blur events.
 
@@ -24,8 +26,6 @@ Import and register `InputValidator` to your application
 import {InputValidator} from "stimulus-inline-input-validations"
 application.register("input-validator", InputValidator)
 ```
-
-## Getting started
 
 1. Add `data-controller="input-validator"` to your form or any parent element of `<input>` elements you want to validate.
 
