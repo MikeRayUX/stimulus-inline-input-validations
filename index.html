@@ -424,7 +424,26 @@ application.register("input-validator", InputValidator)
         <!-- code example start-->
         <div class="">
           <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
-            1. Add `data-input-validator-target` and `data-field` attributes to an input element.
+              1. Add `data-controller="input-validator"` to your form or any parent element of `&lt;input&gt;` elements you want to validate.
+          </h3>
+          <pre>
+            <code class="language-html">
+&lt;form data-controller="input-validator"&gt;
+...
+&lt;/form&gt;
+            </code>
+          </pre>
+        </div>
+        <!-- code example end-->
+      </div>
+      <!-- validation end-->
+
+      <!-- validation start-->
+      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+        <!-- code example start-->
+        <div class="">
+          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+            2. Add `data-input-validator-target` and `data-field` attributes to an input element.
           </h3>
           <pre>
             <code class="language-html">
@@ -441,7 +460,7 @@ application.register("input-validator", InputValidator)
         <!-- code example start-->
         <div class="">
           <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
-            2. Add an errors element with matching `data-field` attribute
+            3. Add an errors element with matching `data-field` attribute
           </h3>
           <pre>
             <code class="language-html">
@@ -458,7 +477,7 @@ application.register("input-validator", InputValidator)
         <!-- code example start-->
         <div class="">
           <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
-            3. Add, mix, and match validations
+            4. Add, mix, and match validations
           </h3>
           <pre>
             <code class="language-html">
