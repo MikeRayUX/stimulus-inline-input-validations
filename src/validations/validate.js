@@ -1,66 +1,89 @@
 import Regex from '../helpers/regex'
+import ErrorMessages from '../i18n/error_messages'
 
 const Validate = {
-  presence (value, errors) {
+  presence (value, errors, locale) {
     if (value.trim().length === 0) {
-      errors.push({ type: 'presence', message: "Can't be blank" })
+      errors.push({
+        type: 'presence',
+        message: ErrorMessages.locales[locale].presence
+      })
     }
   },
 
-  length (value, length, errors) {
+  length (value, length, errors, locale) {
     if (value.length < length.min) {
       errors.push({
         type: 'length-min',
-        message: `Too short. Minimum ${length.min} characters`
+        message: ErrorMessages.locales[locale].length.min.replace(
+          /{value}/g,
+          length.min
+        )
       })
     }
     if (value.length > length.max) {
       errors.push({
         type: 'length-max',
-        message: `Too long. Maximum ${length.max} characters`
+        message: ErrorMessages.locales[locale].length.max.replace(
+          /{value}/g,
+          length.max
+        )
       })
     }
   },
 
-  numericality (value, errors) {
+  numericality (value, errors, locale) {
     if (!Regex.numericality.test(value)) {
-      errors.push({ type: 'numericality', message: 'Must be a number' })
+      errors.push({
+        type: 'numericality',
+        message: ErrorMessages.locales[locale].numericality
+      })
     }
   },
 
-  email (value, errors) {
+  email (value, errors, locale) {
     if (!Regex.email.test(value)) {
-      errors.push({ type: 'email', message: 'Invalid email format' })
+      errors.push({
+        type: 'email',
+        message: ErrorMessages.locales[locale].email
+      })
     }
   },
 
-  strongPassword (validations, value, errors) {
+  strongPassword (validations, value, errors, locale) {
     if (!Regex.singleCapitalLetter.test(value)) {
       errors.push({
         type: 'strong-password-capital-letter',
-        message: 'Must contain at least one capital letter (A-Z)'
+        message: ErrorMessages.locales[locale].strongPassword.capitalLetter
       })
     }
 
     if (!Regex.singleNumber.test(value)) {
       errors.push({
         type: 'strong-password-number',
-        message: 'Must contain at least one number'
+        message: ErrorMessages.locales[locale].strongPassword.number
       })
     }
 
     if (!Regex.singleSpecialCharacter.test(value)) {
       errors.push({
         type: 'strong-password-special-character',
-        message: 'Must contain at least one special character (!@#$%^&*)'
+        message: ErrorMessages.locales[locale].strongPassword.specialCharacter
       })
     }
 
-    if (validations.length && validations.some(validation => Object.keys(validation).includes('length'))) return
+    if (
+      validations.length &&
+      validations.some((validation) =>
+        Object.keys(validation).includes('length')
+      )
+    ) {
+      return
+    }
     if (value.length < 10) {
       errors.push({
         type: 'strong-password-length',
-        message: 'Must be at least 10 characters long'
+        message: ErrorMessages.locales[locale].strongPassword.length
       })
     }
   }

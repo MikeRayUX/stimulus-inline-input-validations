@@ -174,3 +174,25 @@ end
 ```
 
 Make sure you have a matching errors element with `data-input-validator-target="errors"` and matching `data-field=""`
+
+
+## i18n
+
+You can use the `data-input-validator-i18n-locale` attribute to specify a locale for error messages.
+
+```html
+<form data-controller="input-validator" data-input-validator-i18n-locale="es">
+...
+<form>
+```
+
+Supported languages values:
+
+| Value | Language |
+| -------- | ----------- |
+| `en` |  English |
+| `es` | Spanish |
+| `fr` | French |
+| `pt-BR` | Portugese (Brazil) |
+| `zh-CN` | Chinese (Simplified) |
+| `zh-TW` | Chinese (Traditional) |
