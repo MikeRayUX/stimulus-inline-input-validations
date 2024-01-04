@@ -15,13 +15,19 @@ const Validate = {
     if (value.length < length.min) {
       errors.push({
         type: 'length-min',
-        message: ErrorMessages.locales[locale].length.min.replace(/{value}/g, length.min)
+        message: ErrorMessages.locales[locale].length.min.replace(
+          /{value}/g,
+          length.min
+        )
       })
     }
     if (value.length > length.max) {
       errors.push({
         type: 'length-max',
-        message: ErrorMessages.locales[locale].length.max.replace(/{value}/g, length.max)
+        message: ErrorMessages.locales[locale].length.max.replace(
+          /{value}/g,
+          length.max
+        )
       })
     }
   },
@@ -37,7 +43,10 @@ const Validate = {
 
   email (value, errors, locale) {
     if (!Regex.email.test(value)) {
-      errors.push({ type: 'email', message: ErrorMessages.locales[locale].email })
+      errors.push({
+        type: 'email',
+        message: ErrorMessages.locales[locale].email
+      })
     }
   },
 
@@ -68,7 +77,9 @@ const Validate = {
       validations.some((validation) =>
         Object.keys(validation).includes('length')
       )
-    ) { return }
+    ) {
+      return
+    }
     if (value.length < 10) {
       errors.push({
         type: 'strong-password-length',
