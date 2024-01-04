@@ -36,7 +36,7 @@ const ErrorMessages = {
       presence: 'Je ne peux pas être vide',
       length: {
         min: 'Trop court. Minimum {value} caractères',
-        max: 'Trop long. 5 caractères maximum'
+        max: 'Trop long. {value} caractères maximum'
       },
       numericality: 'Doit être un nombre',
       email: "Format d'email invalide",
