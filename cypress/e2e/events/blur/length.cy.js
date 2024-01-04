@@ -1,9 +1,9 @@
 describe("blur/length", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
-  it(`renders length error on blur`, () => {
+  it(`Renders length error on blur`, () => {
     if (Cypress.browser.name === "firefox") {
       cy.log("realPress events library is not supported on firefox. Skipping.");
       return;

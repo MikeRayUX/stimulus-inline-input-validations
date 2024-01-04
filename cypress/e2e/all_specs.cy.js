@@ -16,3 +16,10 @@
 
 // import "./styles/css.cy";
 // import "./styles/classes.cy";
+
+// import "./i18n/locales/en.cy";
+// import "./i18n/locales/es.cy";
+// import "./i18n/locales/fr.cy";
+// import "./i18n/locales/invalid_locale.cy";
+// import "./i18n/locales/zh_cn.cy";
+// import "./i18n/locales/zh_tw.cy";

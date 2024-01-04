@@ -1,9 +1,9 @@
 describe("input/numericality", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
-  it(`renders error div on blank input field with data-validates-numericality attribute set to true`, () => {
+  it(`Renders error div on blank input field with data-validates-numericality attribute set to true`, () => {
     cy.get(`input[data-validates-numericality][data-field='currency']`)
       .type("abc")
 
@@ -14,7 +14,7 @@ describe("input/numericality", () => {
     });
   });
 
-  it(`renders error div on blank input field with data-validates-numericality attribute set to true`, () => {
+  it(`Renders error div on blank input field with data-validates-numericality attribute set to true`, () => {
     cy.get(`input[data-validates-numericality][data-field='currency']`)
       .invoke("attr", "data-validates-numericality", "")
 
@@ -28,7 +28,7 @@ describe("input/numericality", () => {
     });
   });
 
-  it(`doesn't render error on valid number`, () => {
+  it(`Doesn't render error on valid number`, () => {
     cy.get(`input[data-validates-numericality][data-field='currency']`)
       .type("123")
 

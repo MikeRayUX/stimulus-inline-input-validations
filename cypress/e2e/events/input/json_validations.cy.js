@@ -1,6 +1,6 @@
 describe("input/json_validations", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
   it(`Renders errors from json_string passed to data-validations attribute`, () => {

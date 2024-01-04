@@ -1,6 +1,6 @@
 describe("styles/css", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
   it(`It applys default css styles if none are passed as data-errors-styles-css attribute`, () => {

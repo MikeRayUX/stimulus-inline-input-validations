@@ -45,7 +45,7 @@ describe("i18n/locales/es", () => {
     });
   });
 
-  it(`renders numericality error in es`, () => {
+  it(`Renders numericality error in es`, () => {
     cy.get(`input[data-validates-numericality][data-field='currency']`).type(
       "abc"
     );
@@ -59,7 +59,7 @@ describe("i18n/locales/es", () => {
     });
   });
 
-  it(`renders email format error in es`, () => {
+  it(`Renders email format error in es`, () => {
     cy.get(`input[data-validates-email][data-field='emailField']`).type("abc");
 
     cy.get(
@@ -71,7 +71,7 @@ describe("i18n/locales/es", () => {
     });
   });
 
-  it(`renders strong_password errors in es`, () => {
+  it(`Renders strong_password errors in es`, () => {
     cy.get(
       `input[data-validates-strong-password][data-field='passwordField']`
     ).type("abc");

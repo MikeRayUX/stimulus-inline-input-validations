@@ -1,9 +1,9 @@
 describe("blur/multiple_validations", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
-  it(`renders multiple errors on blur`, () => {
+  it(`Renders multiple errors on blur`, () => {
     if (Cypress.browser.name === "firefox") {
       cy.log("realPress events library is not supported on firefox. Skipping.");
       return;

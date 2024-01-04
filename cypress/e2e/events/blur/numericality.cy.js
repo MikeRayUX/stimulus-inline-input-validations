@@ -1,9 +1,9 @@
 describe("blur/numericality", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
-  it(`renders numericality error on blur`, () => {
+  it(`Renders numericality error on blur`, () => {
     if (Cypress.browser.name === "firefox") {
       cy.log("realPress events library is not supported on firefox. Skipping.");
       return;

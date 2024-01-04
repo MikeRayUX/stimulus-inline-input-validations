@@ -1,9 +1,9 @@
 describe("input/presence", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
-  it(`renders error div on blank input field with validate-presence attribute set to true`, () => {
+  it(`Renders error div on blank input field with validate-presence attribute set to true`, () => {
     cy.get(`input[data-validates-presence][data-field='fullName']`)
       .type("abc")
       .clear();
@@ -15,7 +15,7 @@ describe("input/presence", () => {
     });
   });
 
-  it(`renders error div on blank input with blank data-validates-presence attribute`, () => {
+  it(`Renders error div on blank input with blank data-validates-presence attribute`, () => {
     cy.get(
       `input[data-validates-presence][data-field='fullName']`
     ).invoke("attr", "data-validates-presence", "");
@@ -36,7 +36,7 @@ describe("input/presence", () => {
     });
   });
 
-  it("hides errors div when valid", () => {
+  it("Hides errors div when valid", () => {
     let field = cy.get(
       `input[data-validates-presence][data-field='fullName']`
     );

@@ -1,9 +1,9 @@
 describe("input/length", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
-  it(`renders min error if string too short`, () => {
+  it(`Renders min error if string too short`, () => {
     cy.get(`input[data-validates-length="5,10"][data-field='userName']`).type(
       "abc"
     );
@@ -17,7 +17,7 @@ describe("input/length", () => {
     });
   });
 
-  it(`renders max error if string too long`, () => {
+  it(`Renders max error if string too long`, () => {
     cy.get(`input[data-validates-length="5,10"][data-field='userName']`).type(
       "12345678910"
     );
@@ -31,7 +31,7 @@ describe("input/length", () => {
     });
   });
 
-  it(`shows no errors if valid min/max`, () => {
+  it(`Shows no errors if valid min/max`, () => {
     cy.get(`input[data-validates-length="5,10"][data-field='userName']`).type(
       "123456"
     );

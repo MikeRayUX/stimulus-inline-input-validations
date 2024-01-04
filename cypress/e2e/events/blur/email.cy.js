@@ -1,9 +1,9 @@
 describe("blur/email", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
-  it(`renders email format error on blur`, () => {
+  it(`Renders email format error on blur`, () => {
     if (Cypress.browser.name === "firefox") {
       cy.log("realPress events library is not supported on firefox. Skipping.");
       return;

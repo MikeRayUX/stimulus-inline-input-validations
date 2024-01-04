@@ -20,11 +20,5 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Start lite-server
-        run: yarn run lite-server --open=false &
-
-      - name: Wait for lite-server to start
-        run: sleep 10s
-
       - name: Cypress run
         run: yarn run cypress run --spec 'cypress/e2e/**/*.cy.js' --browser ${{ matrix.browser }}

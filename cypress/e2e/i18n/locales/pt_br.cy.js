@@ -45,7 +45,7 @@ describe("i18n/locales/pt_br", () => {
     });
   });
 
-  it(`renders numericality error in pt-BR`, () => {
+  it(`Renders numericality error in pt-BR`, () => {
     cy.get(`input[data-validates-numericality][data-field='currency']`).type(
       "abc"
     );
@@ -59,7 +59,7 @@ describe("i18n/locales/pt_br", () => {
     });
   });
 
-  it(`renders email format error in pt-BR`, () => {
+  it(`Renders email format error in pt-BR`, () => {
     cy.get(`input[data-validates-email][data-field='emailField']`).type("abc");
 
     cy.get(
@@ -71,7 +71,7 @@ describe("i18n/locales/pt_br", () => {
     });
   });
 
-  it(`renders strong_password errors in pt-BR`, () => {
+  it(`Renders strong_password errors in pt-BR`, () => {
     cy.get(
       `input[data-validates-strong-password][data-field='passwordField']`
     ).type("abc");

@@ -2,7 +2,7 @@ import { getRandomStrongPassword } from "../../../support/spec_helper";
 
 describe("input/strong_password", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8080/");
+    cy.visit("cypress/fixtures/fields.html");
   });
 
   it(`Renders default length error`, () => {

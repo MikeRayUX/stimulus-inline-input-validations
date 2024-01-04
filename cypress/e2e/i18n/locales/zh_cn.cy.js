@@ -45,7 +45,7 @@ describe("i18n/locales/zh_cn", () => {
     });
   });
 
-  it(`renders numericality error in zh-CN`, () => {
+  it(`Renders numericality error in zh-CN`, () => {
     cy.get(`input[data-validates-numericality][data-field='currency']`).type(
       "abc"
     );
@@ -59,7 +59,7 @@ describe("i18n/locales/zh_cn", () => {
     });
   });
 
-  it(`renders email format error in zh-CN`, () => {
+  it(`Renders email format error in zh-CN`, () => {
     cy.get(`input[data-validates-email][data-field='emailField']`).type("abc");
 
     cy.get(
@@ -71,7 +71,7 @@ describe("i18n/locales/zh_cn", () => {
     });
   });
 
-  it(`renders strong_password errors in zh-CN`, () => {
+  it(`Renders strong_password errors in zh-CN`, () => {
     cy.get(
       `input[data-validates-strong-password][data-field='passwordField']`
     ).type("abc");
