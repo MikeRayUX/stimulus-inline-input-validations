@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Stimulus Inline Input Validations</title>
+  <script>
+    window.esmsInitOptions = {enable: ['css-modules', 'json-modules']}
+  </script>
+  <script async src="https://unpkg.com/es-module-shims/dist/es-module-shims.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "@hotwired/stimulus": "https://unpkg.com/@hotwired/stimulus/dist/stimulus.js",
+        "stimulus-inline-input-validations": "../../../../dist/stimulus-inline-input-validations.module.js"
+      }
+    }
+    </script>
+
+  <script type="module">
+    import {Application} from "@hotwired/stimulus";
+    import {InputValidator} from "stimulus-inline-input-validations";
+
+    (() => {
+      const application = Application.start();
+      application.register('input-validator', InputValidator);
+    })()
+  </script>
+</head>
+
+<body data-controller="input-validator" data-input-validator-i18n-locale="en">
+  <!-- length start-->
+  <div>
+    <input type="text" data-input-validator-target="field" data-field="userName" data-validates-length="5,10"
+      placeholder="Username">
+    <label for="fullName">
+      Length
+    </label>
+    <div data-input-validator-target="errors" data-field="userName"></div>
+  </div>
+  <!-- length end-->
+
+  <!-- presence start-->
+  <div>
+    <input type="text" data-input-validator-target="field" data-field="fullName" data-validates-presence
+      placeholder="fullName">
+    <label for="fullName">
+      Presence
+    </label>
+    <div data-input-validator-target="errors" data-field="fullName"></div>
+  </div>
+  <!-- presence start-->
+
+  <!-- numericality start-->
+  <div>
+    <input type="text" data-input-validator-target="field" data-field="currency" data-validates-numericality
+      placeholder="currency">
+    <label for="currency">
+      Numericality
+    </label>
+    <div data-input-validator-target="errors" data-field="currency"></div>
+  </div>
+  <!-- numericality start-->
+
+  <!-- email start-->
+  <div>
+    <input type="text" data-input-validator-target="field" data-field="emailField" data-validates-email
+      placeholder="emailField">
+    <label for="emailField">
+      Email
+    </label>
+    <div data-input-validator-target="errors" data-field="emailField"></div>
+  </div>
+  <!-- email start-->
+
+  <!-- strong_password start-->
+  <div>
+    <input type="text" data-input-validator-target="field" data-field="passwordField" data-validates-strong-password
+      placeholder="passwordField">
+    <label for="passwordField">
+      Strong Password
+    </label>
+    <div data-input-validator-target="errors" data-field="passwordField"></div>
+  </div>
+  <!-- strong_password start-->
+</body>
+
+</html>
