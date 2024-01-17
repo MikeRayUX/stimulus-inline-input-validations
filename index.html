@@ -10,7 +10,7 @@
   </script>
   <script async src="https://unpkg.com/es-module-shims/dist/es-module-shims.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-  <link rel="stylesheet" href="./tokyo_night_dark.css">
+  <link rel="stylesheet" href="./styles/tokyo_night_dark.css">
   <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', (event) => {
@@ -44,18 +44,21 @@
     <!-- hero start -->
     <div class="w-full pb-4 mx-auto flex flex-col lg:flex-row justify-center items-center pt-8 pb-0 py-12 space-x-10">
       <div class="w-full lg:w-1/2 max-w-lg mb-6">
-        <h1 class="mb-4 font-black text-slate-800 text-5xl dark:text-slate-200 text-center lg:text-left">
+        <h1 class="mb-4 font-black text-slate-800 text-5xl text-center lg:text-left">
           Stimulus Inline Input Validations
         </h1>
-        <p class="text-xl text-slate-700 dark:text-slate-400 text-center lg:text-left mb-3">
+        <p class="text-xl text-slate-700 text-center lg:text-left mb-3">
           A Stimulus controller for validating html form inputs and rendering their errors in a custom error element.
         </p>
         <div class="flex flex-row justify-center lg:justify-start items-center w-full space-x-4 mb-8">
-          <img alt="status badge for download count of package" src="https://img.shields.io/npm/dt/stimulus-inline-input-validations.svg">
-          <img alt="status badge for version of package" src="https://img.shields.io/npm/v/stimulus-inline-input-validations.svg">
+          <img alt="status badge for download count of package"
+            src="https://img.shields.io/npm/dt/stimulus-inline-input-validations.svg">
+          <img alt="status badge for version of package"
+            src="https://img.shields.io/npm/v/stimulus-inline-input-validations.svg">
           <img alt="status badge for status of CI tests for package"
             src="https://github.com/mikerayux/stimulus-inline-input-validations/actions/workflows/test.yml/badge.svg">
-          <img alt="badge for licnese of package" src="https://img.shields.io/github/license/mikerayux/stimulus-inline-input-validations.svg">
+          <img alt="badge for licnese of package"
+            src="https://img.shields.io/github/license/mikerayux/stimulus-inline-input-validations.svg">
         </div>
         <div class="flex flex-row justify-center lg:justify-start items-center text-white">
           <a href="https://github.com/mikerayux/stimulus-inline-input-validations" target="_blank"
@@ -72,26 +75,26 @@
       <!-- installation start-->
       <div class="w-1/2 max-w-lg">
         <!-- step start-->
-        <div class="flex flex-col dark:bg-slate-900 w-full mx-auto">
+        <div class="flex flex-col w-full mx-auto">
           <!-- code example start-->
-          <div class="">
-            <h3 class="block text-base font-normal text-slate-800 dark:text-white">
+          <div>
+            <h3 class="block text-base font-normal text-slate-800 ">
               1. Install the package
             </h3>
             <pre class="text-sm">
               <code class="language-bash">
 yarn add stimulus-inline-input-validations
-              </code>
+            </code>
             </pre>
           </div>
           <!-- code example end-->
         </div>
         <!-- step end-->
         <!-- step start-->
-        <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto">
+        <div class="flex flex-col w-full max-w-xl mx-auto">
           <!-- code example start-->
-          <div class="">
-            <h3 class="text-base block font-normal text-slate-800 dark:text-white">
+          <div>
+            <h3 class="text-base block font-normal text-slate-800 ">
               2. Import and register the controller
             </h3>
             <pre class="text-sm">
@@ -116,9 +119,9 @@ application.register("input-validator", InputValidator)
     <h1 class="text-4xl text-center font-black text-slate-800 mb-10">Validations as HTML attributes</h1>
     <div class="space-y-12">
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto mb-6">
+      <div class="flex flex-col w-full max-w-xl mx-auto mb-6">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-black text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-black text-slate-800 mb-1 mr-4 ">
             Length
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white">
@@ -127,7 +130,7 @@ application.register("input-validator", InputValidator)
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl text-left font-normal text-slate-600 dark:text-white">Validates min,max length of
+          <p class="block text-xl text-left font-normal text-slate-600 ">Validates min,max length of
             a
             string</p>
         </div>
@@ -135,11 +138,11 @@ application.register("input-validator", InputValidator)
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="userName" data-validates-length="5,10"
             placeholder="Username">
           <label for="fullName"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Username
           </label>
           <div data-input-validator-target="errors" data-field="userName" class="mt-1"></div>
@@ -149,9 +152,9 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
+      <div class="flex flex-col w-full max-w-xl mx-auto ">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4">
+          <h3 class="block text-3xl font-bold text-slate-800 mb-1 mr-4">
             Presence
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
@@ -160,17 +163,17 @@ application.register("input-validator", InputValidator)
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl font-normal text-slate-600 dark:text-white">Validates that a field is not blank
+          <p class="block text-xl font-normal text-slate-600 ">Validates that a field is not blank
           </p>
         </div>
 
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="fullName" data-validates-presence placeholder="fullName">
           <label for="fullName"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Full name
           </label>
           <div data-input-validator-target="errors" data-field="fullName" class="mt-1"></div>
@@ -180,9 +183,9 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
+      <div class="flex flex-col w-full max-w-xl mx-auto ">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-bold text-slate-800 mb-1 mr-4 ">
             Numericality
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white">
@@ -191,17 +194,17 @@ application.register("input-validator", InputValidator)
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl font-normal text-slate-600 dark:text-white">Validates if a field is a number</p>
+          <p class="block text-xl font-normal text-slate-600 ">Validates if a field is a number</p>
         </div>
 
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="currency" data-validates-numericality
             placeholder="currency">
           <label for="currency"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Number field
           </label>
           <div data-input-validator-target="errors" data-field="currency" class="mt-1"></div>
@@ -211,9 +214,9 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
+      <div class="flex flex-col w-full max-w-xl mx-auto ">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-bold text-slate-800 mb-1 mr-4 ">
             Email
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
@@ -222,16 +225,16 @@ application.register("input-validator", InputValidator)
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl font-normal text-slate-600 dark:text-white">Validates email format</p>
+          <p class="block text-xl font-normal text-slate-600 ">Validates email format</p>
         </div>
 
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="emailField" data-validates-email placeholder="emailField">
           <label for="emailField"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Email
           </label>
           <div data-input-validator-target="errors" data-field="emailField" class="mt-1"></div>
@@ -241,9 +244,9 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
+      <div class="flex flex-col w-full max-w-xl mx-auto ">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-bold text-slate-800 mb-1 mr-4 ">
             Strong password
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
@@ -252,17 +255,17 @@ application.register("input-validator", InputValidator)
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl font-normal text-slate-600 dark:text-white">Validates strong password</p>
+          <p class="block text-xl font-normal text-slate-600 ">Validates strong password</p>
         </div>
 
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="passwordField" data-validates-strong-password
             placeholder="passwordField">
           <label for="passwordField"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Password
           </label>
           <div data-input-validator-target="errors" data-field="passwordField" class="mt-1"></div>
@@ -279,9 +282,9 @@ application.register("input-validator", InputValidator)
     <h1 class="text-4xl text-center font-black text-slate-800 mb-10">Multiple Validations</h1>
     <div class="space-y-12">
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
+      <div class="flex flex-col w-full max-w-xl mx-auto ">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-bold text-slate-800 mb-1 mr-4 ">
             Multiple HTML attributes
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
@@ -289,18 +292,18 @@ application.register("input-validator", InputValidator)
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl font-normal text-slate-600 dark:text-white">Length, Presence, Email
+          <p class="block text-xl font-normal text-slate-600 ">Length, Presence, Email
           </p>
         </div>
 
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="multiple" data-validates-presence
             data-validates-length="5,50" data-validates-email placeholder="emailField">
           <label for="emailField"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Start typing something
           </label>
           <div data-input-validator-target="errors" data-field="multiple" class="mt-1"></div>
@@ -310,29 +313,31 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
+      <div class="flex flex-col w-full max-w-xl mx-auto ">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-bold text-slate-800 mb-1 mr-4 ">
             JSON
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
             <span class="text-blue-300 font-semibold">data-validations=</span>
-            <span class="text-emerald-300 font-semibold">'[{"presence": true}, {"length": {"min":6, "max":128}}, {"strong_password":true}]'</span>
+            <span class="text-emerald-300 font-semibold">'[{"presence": true}, {"length": {"min":6, "max":128}},
+              {"strong_password":true}]'</span>
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl font-normal text-slate-600 dark:text-white">Bulk validations via a json-friendly
+          <p class="block text-xl font-normal text-slate-600 ">Bulk validations via a json-friendly
             string</p>
         </div>
 
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="jsonBulkValidations"
-            data-validations="[{'presence': true}, {'length': {'min':6, 'max':128}}, {'strong_password':true}]" placeholder="emailField">
+            data-validations="[{'presence': true}, {'length': {'min':6, 'max':128}}, {'strong_password':true}]"
+            placeholder="emailField">
           <label for="emailField"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Start typing something
           </label>
           <div data-input-validator-target="errors" data-field="jsonBulkValidations" class="mt-1"></div>
@@ -349,9 +354,9 @@ application.register("input-validator", InputValidator)
     <h1 class="text-4xl text-center font-black text-slate-800 mb-10">Custom Error Styles</h1>
     <div class="space-y-12">
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
+      <div class="flex flex-col w-full max-w-xl mx-auto ">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-bold text-slate-800 mb-1 mr-4 ">
             CSS
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
@@ -360,16 +365,16 @@ application.register("input-validator", InputValidator)
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl font-normal text-slate-600 dark:text-white">font-size: 14px; color: blue</p>
+          <p class="block text-xl font-normal text-slate-600 ">font-size: 14px; color: blue</p>
         </div>
 
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="customCSS" data-validates-email placeholder="emailField">
           <label for="emailField"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Start typing something
           </label>
           <div data-input-validator-target="errors" data-field="customCSS"
@@ -380,9 +385,9 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-xl mx-auto ">
+      <div class="flex flex-col w-full max-w-xl mx-auto ">
         <div class="flex flex-row justify-start items-center">
-          <h3 class="block text-3xl font-bold text-slate-800 dark:text-white mb-1 mr-4 ">
+          <h3 class="block text-3xl font-bold text-slate-800 mb-1 mr-4 ">
             Classes
           </h3>
           <span class="py-1 px-2 text-sm rounded bg-slate-800 text-white ">
@@ -391,18 +396,18 @@ application.register("input-validator", InputValidator)
           </span>
         </div>
         <div class="mb-5">
-          <p class="block text-xl font-normal text-slate-600 dark:text-white">
+          <p class="block text-xl font-normal text-slate-600 ">
             font-bold text-purple-600 (Tailwind)</p>
         </div>
 
         <!-- field start-->
         <div class="relative mb-2">
           <input type="text"
-            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-slate-700 dark:text-slate-400 dark:focus:ring-slate-600 focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
+            class="peer p-4 block w-full border-slate-400 rounded-lg text-sm placeholder:text-transparent focus:border-indigo-500 focus:ring-indigo-500 disabled:opacity-50 disabled:pointer-events-none focus:pt-6 focus:pb-2 [&:not(:placeholder-shown)]:pt-6 [&:not(:placeholder-shown)]:pb-2 autofill:pt-6 autofill:pb-2"
             data-input-validator-target="field" data-field="customClasses" data-validates-email
             placeholder="emailField">
           <label for="emailField"
-            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent dark:text-white peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
+            class="absolute top-0 start-0 p-4 h-full text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent peer-disabled:opacity-50 peer-disabled:pointer-events-none peer-focus:text-xs peer-focus:-translate-y-1.5 peer-focus:text-slate-500 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:-translate-y-1.5 peer-[:not(:placeholder-shown)]:text-slate-500">
             Start typing something
           </label>
           <div data-input-validator-target="errors" data-field="customClasses"
@@ -419,11 +424,12 @@ application.register("input-validator", InputValidator)
     <h1 class="text-4xl text-center font-black text-slate-800 mb-10">How to use</h1>
     <div class="space-y-0">
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+      <div class="flex flex-col w-full max-w-3xl mx-auto">
         <!-- code example start-->
-        <div class="">
-          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
-              1. Add `data-controller="input-validator"` to your form or any parent element of `&lt;input&gt;` elements you want to validate.
+        <div>
+          <h3 class="block text-xl font-normal text-slate-800 ">
+            1. Add `data-controller="input-validator"` to your form or any parent element of `&lt;input&gt;` elements
+            you want to validate.
           </h3>
           <pre>
             <code class="language-html">
@@ -438,10 +444,10 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+      <div class="flex flex-col w-full max-w-3xl mx-auto">
         <!-- code example start-->
-        <div class="">
-          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+        <div>
+          <h3 class="block text-xl font-normal text-slate-800 ">
             2. Add `data-input-validator-target` and `data-field` attributes to an input element.
           </h3>
           <pre>
@@ -455,16 +461,16 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+      <div class="flex flex-col w-full max-w-3xl mx-auto">
         <!-- code example start-->
-        <div class="">
-          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+        <div>
+          <h3 class="block text-xl font-normal text-slate-800 ">
             3. Add an errors element with matching `data-field` attribute
           </h3>
           <pre>
             <code class="language-html">
 &lt;div data-input-validator-target="errors" data-field="userName"&gt;&lt;/div&gt;
-          </code>
+            </code>
           </pre>
         </div>
         <!-- code example end-->
@@ -472,16 +478,16 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+      <div class="flex flex-col w-full max-w-3xl mx-auto">
         <!-- code example start-->
-        <div class="">
-          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+        <div>
+          <h3 class="block text-xl font-normal text-slate-800 ">
             4. Add, mix, and match validations
           </h3>
           <pre>
             <code class="language-html">
 &lt;input ... data-validates-length="5,10" data-validates-numericality data-validates-email&gt;
-          </code>
+            </code>
           </pre>
         </div>
         <!-- code example end-->
@@ -489,10 +495,10 @@ application.register("input-validator", InputValidator)
       <!-- validation end-->
 
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+      <div class="flex flex-col w-full max-w-3xl mx-auto">
         <!-- code example start-->
-        <div class="">
-          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
+        <div>
+          <h3 class="block text-xl font-normal text-slate-800 ">
             Validations run on input/blur events, and will render any errors inside the errors element
           </h3>
           <pre>
@@ -515,14 +521,15 @@ application.register("input-validator", InputValidator)
   <!-- section start-->
   <div class="container mx-auto p-4 w-full">
     <h1 class="text-4xl text-center font-black text-slate-800 mb-1">Usage in Rails:</h1>
-    <h1 class="text-3xl text-center font-bold text-slate-800 mb-10">Leveraging existing model validations in Rails form helpers</h1>
+    <h1 class="text-3xl text-center font-bold text-slate-800 mb-10">Leveraging existing model validations in Rails form
+      helpers</h1>
     <div class="space-y-0">
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+      <div class="flex flex-col w-full max-w-3xl mx-auto">
         <!-- code example start-->
-        <div class="">
-          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
-              1. Add a `json_validations_for` method to `application_helper.rb`
+        <div>
+          <h3 class="block text-xl font-normal text-slate-800 ">
+            1. Add a `json_validations_for` method to `application_helper.rb`
           </h3>
           <pre>
             <code class="language-ruby">
@@ -537,7 +544,7 @@ module ApplicationHelper
       if validator_name == :length_validator
         options = validator.options.dup
         validations_hash[:length] = { min: options[:minimum].present? ? options[:minimum] : 1,
-                                      max: options[:maximum].present? ? options[:maximum] : 1000 }
+        max: options[:maximum].present? ? options[:maximum] : 1000 }
       end
 
       validations_hash[:presence] = true if validator_name == :presence_validator
@@ -561,22 +568,22 @@ end
       </div>
       <!-- validation end-->
       <!-- validation start-->
-      <div class="flex flex-col dark:bg-slate-900 w-full max-w-3xl mx-auto">
+      <div class="flex flex-col w-full max-w-3xl mx-auto">
         <!-- code example start-->
-        <div class="">
-          <h3 class="block text-xl font-normal text-slate-800 dark:text-white">
-              2. Use the `json_validations_for` helper method in your Rails form helpers
+        <div>
+          <h3 class="block text-xl font-normal text-slate-800 ">
+            2. Use the `json_validations_for` helper method in your Rails form helpers
           </h3>
           <pre>
             <code class="language-html">
-<%= f.text_field :email,
-      data: {
-        input_validator_target:"field",
-        field: :email,
-        validations: json_validations_for(@user, :email)
-      } %>
+<%= f.text_field :email, 
+                 data: { 
+                  input_validator_target:"field",
+                  field: :email,
+                  validations: json_validations_for(@user, :email) 
+                 }%>
 &lt;div data-input-validator-target="errors" data-field="email"&gt;&lt;/div&gt;
-          </code>
+            </code>
           </pre>
         </div>
         <!-- code example end-->
@@ -585,12 +592,14 @@ end
     </div>
   </div>
   <!-- section end-->
-    <h1 class="text-lg font-semibold text-underline text-slate-800 flex flex-row justify-center items-center py-2 mb-4">Made with 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mx-1 w-6 h-6">
-        <path d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
-      </svg>
-      in Akron, OH by <a href="https://twitter.com/mike_ray_ux" target="_blank" class="ml-1 underline text-blue-600">Mike Ray Arriaga</a>
-    </h1>
+  <h1 class="text-lg font-semibold text-underline text-slate-800 flex flex-row justify-center items-center py-2 mb-4">
+    Made with
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="mx-1 w-6 h-6">
+      <path
+        d="m11.645 20.91-.007-.003-.022-.012a15.247 15.247 0 0 1-.383-.218 25.18 25.18 0 0 1-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0 1 12 5.052 5.5 5.5 0 0 1 16.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 0 1-4.244 3.17 15.247 15.247 0 0 1-.383.219l-.022.012-.007.004-.003.001a.752.752 0 0 1-.704 0l-.003-.001Z" />
+    </svg>
+    in Akron, OH by <a href="https://twitter.com/mike_ray_ux" target="_blank" class="ml-1 underline text-blue-600">Mike
+      Ray Arriaga</a>
+  </h1>
 </body>
-
 </html>

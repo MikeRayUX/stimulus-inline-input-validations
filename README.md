@@ -63,7 +63,7 @@ application.register("input-validator", InputValidator)
     <div
       data-input-validator-target="errors"
       data-field="fullName"
-      class="">Errors will be rendered here</div>
+      >Errors will be rendered here</div>
 </div>
 ```
 
@@ -84,7 +84,7 @@ application.register("input-validator", InputValidator)
     <div
       data-input-validator-target="errors"
       data-field="fullName"
-      class=""></div>
+      ></div>
 </div>
 ```
 
